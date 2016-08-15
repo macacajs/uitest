@@ -1,0 +1,37 @@
+{
+  "name": "uitest",
+  "version": "1.0.1",
+  "description": "uitest",
+  "keywords": [
+    "uitest"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/macacajs/uitest.git"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "macaca-electron": "^1.0.8",
+    "mocha": "^3.0.2"
+  },
+  "devDependencies": {
+    "co-mocha": "*",
+    "ipv4": "^0.0.4",
+    "istanbul": "*",
+    "jshint": "*",
+    "mocha": "^3.0.2",
+    "pre-commit": "1.1.1",
+    "should": "^11.0.0",
+    "startserver": "^1.2.3"
+  },
+  "scripts": {
+    "test": "make test",
+    "jshint": "make jshint"
+  },
+  "pre-commit": [
+    "jshint"
+  ],
+  "homepage": "https://github.com/macacajs/uitest",
+  "license": "MIT"
+}
