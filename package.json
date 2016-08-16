@@ -1,6 +1,6 @@
 {
   "name": "uitest",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "uitest",
   "keywords": [
     "uitest"
@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "co": "^4.6.0",
-    "macaca-electron": "^1.0.8",
-    "mocha": "^3.0.2"
+    "macaca-electron": "^1.1.0"
   },
   "devDependencies": {
     "co-mocha": "*",
