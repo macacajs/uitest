@@ -12,17 +12,72 @@
 [travis-url]: https://travis-ci.org/macacajs/uitest
 [coveralls-image]: https://img.shields.io/coveralls/macacajs/uitest.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/macacajs/uitest?branch=master
-[node-image]: https://img.shields.io/badge/node.js-%3E=_0.10-green.svg?style=flat-square
+[node-image]: https://img.shields.io/badge/node.js-%3E=_4.2-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 [download-image]: https://img.shields.io/npm/dm/uitest.svg?style=flat-square
 [download-url]: https://npmjs.org/package/uitest
 
-> uitest
+> uitest framework for Node.js based on Macaca
 
 ## Installment
 
 ```shell
 $ npm i uitest --save-dev
+```
+
+## Usage
+
+Here is an example `test.html`
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>macaca mocha test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="./node_modules/mocha/mocha.js"></script>
+    <script src='./node_modules/uitest/uitest-mocha-shim.js'></script>
+    <script src="./node_modules/should/should.js"></script>
+    <script>
+    _macaca_uitest.setup({
+      ui: 'bdd',
+      timeout: 5000,
+      slow: 2000
+    });
+    </script>
+    <script>
+    describe('sample', function() {
+
+      beforeEach('init', function() {
+      });
+
+      it('#case_1', function() {
+      });
+
+    });
+    </script>
+    <script>
+    _macaca_uitest.run();
+    </script>
+  </body>
+</html>
+```
+
+### Screenshots
+
+```javascript
+_macaca_uitest.screenshot(name[String], cb[Function]);
+```
+
+### Gulp
+
+```shell
+$ npm i gulp-uitest --save-dev
 ```
 
 ## License
