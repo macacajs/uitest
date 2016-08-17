@@ -19,13 +19,14 @@
 
 > uitest framework for Node.js based on Macaca
 
-## Installment
+## installation
 
 ```shell
 $ npm i uitest --save-dev
 ```
 
 ## Usage
+You should configure your entry HTML by including `uitest-mocha-shim.js`.
 
 Here is an example `test.html`
 
@@ -68,17 +69,63 @@ Here is an example `test.html`
 </html>
 ```
 
+### Node.js
+
+Your can start uitest using Node API:
+
+```javascript
+const uitest = require('uitest')
+
+uitest({
+  url: 'file:///Users/name/path/index.html',
+  width: 600,
+  height: 480,
+  hidpi: false,
+  useContentSize: true,
+  show: false,
+}).then(() => {
+  console.log('uitest success')
+}).catch(() => {
+  console.log('uitest error')
+})
+```
+
+### Gulp
+
+Or with Gulp:
+
+```shell
+$ npm i gulp-uitest --save-dev
+```
+
+```javascript
+const uitest = require('gulp-uitest')
+//test
+gulp.task('test', function () {
+  return gulp
+    .src('test/html/index.html')
+    .pipe(uitest({
+      width: 600,
+      height: 480,
+      hidpi: false,
+      useContentSize: true,
+      show: false,
+    }));
+});
+
+```
+
 ### Screenshots
 
 ```javascript
 _macaca_uitest.screenshot(name[String], cb[Function]);
 ```
 
-### Gulp
+### Advanced
 
-```shell
-$ npm i gulp-uitest --save-dev
-```
+If you do not want the page to display in retina mode, set `hidpi` to false.
+
+For more options, see [Electron BrowserWindow options](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions) 
 
 ## License
 
