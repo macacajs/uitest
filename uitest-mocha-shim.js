@@ -1,4 +1,5 @@
 ;(function() {
+  'use strict';
 
   var isElectron = /Electron/i.test(navigator.userAgent);
 
@@ -15,8 +16,8 @@
         return;
       }
 
-      remoteConsole.log.apply(remoteConsole, arguments)
-    }
+      remoteConsole.log.apply(remoteConsole, arguments);
+    };
   }
 
   window._macaca_uitest = {
@@ -24,7 +25,6 @@
       if (!isElectron) {
         return cb();
       }
-      var mochaElem = document.getElementById('mocha');
 
       if (typeof process === 'undefined') {
         return cb();
@@ -51,7 +51,7 @@
         mochaOptions = Object.assign({}, options, {
           reporter: 'spec',
           useColors: true
-        })
+        });
       }
 
       return mocha.setup(mochaOptions);
