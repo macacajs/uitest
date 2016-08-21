@@ -19,13 +19,18 @@
 
 > uitest framework for Node.js based on Macaca
 
-## installation
+## Installation
 
 ```shell
 $ npm i uitest --save-dev
 ```
 
+## Sample
+
+[uitest-sample](//github.com/xudafeng/uitest-sample)
+
 ## Usage
+
 You should configure your entry HTML by including `uitest-mocha-shim.js`.
 
 Here is an example `test.html`
@@ -74,7 +79,7 @@ Here is an example `test.html`
 Your can start uitest using Node API:
 
 ```javascript
-const uitest = require('uitest')
+const uitest = require('uitest');
 
 uitest({
   url: 'file:///Users/name/path/index.html',
@@ -87,7 +92,7 @@ uitest({
   console.log('uitest success')
 }).catch(() => {
   console.log('uitest error')
-})
+});
 ```
 
 ### Gulp
@@ -99,9 +104,9 @@ $ npm i gulp-uitest --save-dev
 ```
 
 ```javascript
-const uitest = require('gulp-uitest')
+const uitest = require('gulp-uitest');
 //test
-gulp.task('test', function () {
+gulp.task('test', function() {
   return gulp
     .src('test/html/index.html')
     .pipe(uitest({
