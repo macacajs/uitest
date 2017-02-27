@@ -27,7 +27,7 @@ $ npm i uitest --save-dev
 
 ## Sample
 
-[uitest-sample](//github.com/xudafeng/uitest-sample)
+[uitest-sample](//github.com/macaca-sample/uitest-sample)
 
 ## Usage
 
