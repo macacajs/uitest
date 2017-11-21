@@ -21,7 +21,7 @@
 
 ## Installation
 
-``` bash
+```bash
 $ npm i uitest --save-dev
 ```
 
@@ -35,7 +35,7 @@ You should configure your entry HTML by including `uitest-mocha-shim.js`.
 
 Here is an example `test.html`
 
-``` html
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -78,7 +78,7 @@ Here is an example `test.html`
 
 Your can start uitest using Node API:
 
-``` javascript
+```javascript
 const uitest = require('uitest');
 
 uitest({
@@ -99,11 +99,11 @@ uitest({
 
 Or with Gulp:
 
-``` bash
+```bash
 $ npm i gulp-uitest --save-dev
 ```
 
-``` javascript
+```javascript
 const uitest = require('gulp-uitest');
 //test
 gulp.task('test', function() {
@@ -122,7 +122,7 @@ gulp.task('test', function() {
 
 ### Screenshots
 
-``` javascript
+```javascript
 _macaca_uitest.screenshot(name[String], cb[Function]);
 ```
 
