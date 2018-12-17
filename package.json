@@ -1,6 +1,6 @@
 {
   "name": "uitest",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "uitest",
   "keywords": [
     "uitest"
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "co": "^4.6.0",
-    "macaca-electron": "^1.1.0"
+    "macaca-electron": "2"
   },
   "devDependencies": {
     "co-mocha": "*",
@@ -20,17 +20,16 @@
     "ipv4": "^1.0.1",
     "istanbul": "*",
     "jshint": "*",
-    "mocha": "^3.0.2",
-    "pre-commit": "*",
-    "should": "^11.0.0",
-    "startserver": "^1.2.3"
+    "mocha": "^3.5.3",
+    "nyc": "^13.1.0",
+    "pre-commit": "*"
   },
   "scripts": {
-    "test": "make test",
-    "jshint": "make jshint"
+    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "lint": "jshint ."
   },
   "pre-commit": [
-    "jshint"
+    "lint"
   ],
   "homepage": "https://github.com/macacajs/uitest",
   "license": "MIT"
