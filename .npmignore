@@ -1,10 +1,9 @@
-coverage.html
-lib-cov/
 node_modules
 .travis.yml
-Makefile
+.nyc_output
 .jshintrc
 .jshintignore
 coverage/
+test/screenshot
 *.sw*
 *.un~
