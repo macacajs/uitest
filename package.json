@@ -16,11 +16,10 @@
   },
   "devDependencies": {
     "co-mocha": "*",
-    "detect-port": "^1.2.0",
-    "ipv4": "^1.0.1",
-    "istanbul": "*",
+    "detect-port": "1",
+    "ipv4": "1",
     "jshint": "*",
-    "mocha": "^3.5.3",
+    "mocha": "*",
     "nyc": "^13.1.0",
     "pre-commit": "*"
   },
