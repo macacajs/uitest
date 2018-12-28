@@ -70,6 +70,7 @@ Here is an example `test.html`
     });
     </script>
     <script>
+    // will generate the coverage file if `window.__coverage__` is existed.
     _macaca_uitest.run();
     </script>
   </body>

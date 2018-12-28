@@ -6,9 +6,11 @@
   if (!isElectron) {
     console.info('Macaca Electron Environment not support.');
   } else {
+    var fs = require('fs');
+    var path = require('path');
     var { remote } = require('electron');
+    var { ipcRenderer } = require('electron');
     var remoteConsole = remote.require('console');
-    var ipcRenderer = require('electron').ipcRenderer;
 
     // we have to do this so that mocha output doesn't look like shit
     console.log = function () {
@@ -59,12 +61,24 @@
 
     run: function() {
       return mocha.run(function(failedCount) {
-        isElectron && ipcRenderer.send('ipc', {
-          action: 'exit',
-          data: {
-            failedCount: failedCount
-          }
-        });
+        if (window.__coverage__) {
+          const coverageDir = path.join(process.cwd(), 'coverage');
+          try {
+            fs.mkdirSync(path.join(coverageDir));
+            fs.mkdirSync(path.join(coverageDir, '.temp'));
+          } catch (e) {}
+          const file = path.join(coverageDir, '.temp', `${+new Date()}_coverage.json`);
+          fs.writeFileSync(file, JSON.stringify(window.__coverage__, null, 2));
+          console.log(`coverage file created at: ${file}`);
+        }
+        if (isElectron) {
+          ipcRenderer.send('ipc', {
+            action: 'exit',
+            data: {
+              failedCount,
+            }
+          });
+        }
       });
     }
   };
