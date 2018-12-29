@@ -3,6 +3,7 @@ node_modules
 .nyc_output
 .jshintrc
 .jshintignore
-test/screenshot
+docs
+docs_src
 *.sw*
 *.un~
