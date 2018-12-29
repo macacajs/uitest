@@ -1,7 +1,7 @@
 {
   "name": "uitest",
   "version": "1.3.0",
-  "description": "uitest",
+  "description": "Run mocha in a browser environment.",
   "keywords": [
     "uitest"
   ],
@@ -21,11 +21,14 @@
     "jshint": "*",
     "mocha": "*",
     "nyc": "^13.1.0",
-    "pre-commit": "*"
+    "pre-commit": "*",
+    "vuepress": "^0.14.8"
   },
   "scripts": {
     "test": "nyc --reporter=lcov --reporter=text mocha",
-    "lint": "jshint ."
+    "lint": "jshint .",
+    "docs:dev": "vuepress dev docs_src",
+    "docs:build": "vuepress build docs_src"
   },
   "pre-commit": [
     "lint"

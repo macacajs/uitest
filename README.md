@@ -19,7 +19,7 @@
 [download-image]: https://img.shields.io/npm/dm/uitest.svg?style=flat-square
 [download-url]: https://npmjs.org/package/uitest
 
-> uitest framework for Node.js based on Macaca
+> Run mocha in a browser environment.
 
 ## Installation
 
