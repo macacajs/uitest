@@ -19,6 +19,7 @@ module.exports = {
     },
   },
   head: [
+    ['link', { rel: 'icon', href: 'logo/favicon.ico' }],
     ['script', {
       async: true,
       src: 'https://www.googletagmanager.com/gtag/js?id=UA-49226133-2',
@@ -48,9 +49,14 @@ module.exports = {
           },
         },
         nav: [
+          {
+            text: 'Guide',
+            link: '/guide/install.html'
+          },
         ],
         sidebar: {
-        }
+          '/guide/': genSidebarConfig('Guide', 'Usage', 'Advanced'),
+        },
       },
       '/zh/': {
         label: '简体中文',
@@ -64,20 +70,28 @@ module.exports = {
           },
         },
         nav: [
+          {
+            text: '指南',
+            link: '/zh/guide/install.html'
+          },
         ],
         sidebar: {
-        }
+          '/zh/guide/': genSidebarConfig('指南'),
+        },
       },
     },
   },
 };
 
-function genSidebarConfig(title) {
+function genSidebarConfig(guide) {
   return [
     {
-      title,
+      title: guide,
       collapsable: false,
       children: [
+        'install',
+        'usage',
+        'advanced',
       ],
     },
   ];

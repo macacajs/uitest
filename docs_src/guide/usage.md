@@ -1,0 +1,98 @@
+# Usage
+
+You should configure your entry HTML by including `uitest-mocha-shim.js`.
+
+Here is an example `test.html`
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>macaca mocha test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="./node_modules/mocha/mocha.js"></script>
+    <script src='./node_modules/uitest/uitest-mocha-shim.js'></script>
+    <script src="./node_modules/should/should.js"></script>
+    <script>
+    _macaca_uitest.setup({
+      ui: 'bdd',
+      timeout: 5000,
+      slow: 2000
+    });
+    </script>
+    <script>
+    describe('sample', function() {
+
+      beforeEach('init', function() {
+      });
+
+      it('#case_1', function() {
+      });
+
+    });
+    </script>
+    <script>
+    // will generate the coverage file if `window.__coverage__` is existed.
+    _macaca_uitest.run();
+    </script>
+  </body>
+</html>
+```
+
+## Node.js
+
+Your can start uitest using Node API:
+
+```javascript
+const uitest = require('uitest');
+
+uitest({
+  url: 'file:///Users/name/path/index.html',
+  width: 600,
+  height: 480,
+  hidpi: false,
+  useContentSize: true,
+  show: false,
+}).then(() => {
+  console.log('uitest success')
+}).catch(() => {
+  console.log('uitest error')
+});
+```
+
+## Gulp
+
+Or with Gulp:
+
+```bash
+$ npm i gulp-uitest --save-dev
+```
+
+```javascript
+const uitest = require('gulp-uitest');
+//test
+gulp.task('test', function() {
+  return gulp
+    .src('test/html/index.html')
+    .pipe(uitest({
+      width: 600,
+      height: 480,
+      hidpi: false,
+      useContentSize: true,
+      show: false,
+    }));
+});
+
+```
+
+## Screenshots
+
+```javascript
+_macaca_uitest.screenshot(name[String], cb[Function]);
+```
+

@@ -1,20 +1,18 @@
 ---
 
 home: true
-heroImage: https://macacajs.github.io/logo/macaca.svg
+heroImage: /logo/logo-color.svg
 actionText: Try it Out →
-actionLink: #
-features:
-- title: 浏览器环境
-  details: 支持浏览器环境的测试需要
+actionLink: /zh/guide/install.html
 footer: MIT Licensed | Copyright © 2015-present Macaca
 
 ---
 
 ## 准备起航
 
+安装
+
 ```bash
-# 安装
-$ npm i uitest -g
+$ npm i uitest --save-dev
 ```
 

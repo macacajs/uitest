@@ -1,19 +1,18 @@
 ---
 
 home: true
-heroImage: https://macacajs.github.io/logo/macaca.svg
+heroImage: /logo/logo-color.svg
 actionText: Try it Out →
-actionLink: #
-features:
-- title: In Chromium
-  details: Run in browser environment.
+actionLink: /guide/install.html
 footer: MIT Licensed | Copyright © 2015-present Macaca
 
 ---
 
 ## Fast start
 
+Install
+
 ```bash
-# install
-$ npm i uitest -g
+$ npm i uitest --save-dev
 ```
+
