@@ -2,6 +2,8 @@
 
 const name = 'uitest';
 
+const title = 'Macaca UITest';
+
 module.exports = {
   dest: 'docs',
   base: `/${name}/`,
@@ -9,16 +11,20 @@ module.exports = {
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'UITest',
+      title,
       description: 'Run mocha in a browser environment.',
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'UITest',
+      title,
       description: '在浏览器环境中运行测试。',
     },
   },
   head: [
+    ['link', {
+      rel: 'icon',
+      href: '/assets/favicon.ico'
+    }],
     ['script', {
       async: true,
       src: 'https://www.googletagmanager.com/gtag/js?id=UA-49226133-2',
@@ -28,6 +34,11 @@ module.exports = {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-49226133-2');
+    `],
+    ['style', {}, `
+      img {
+        width: 100%;
+      }
     `]
   ],
   serviceWorker: true,
@@ -48,9 +59,14 @@ module.exports = {
           },
         },
         nav: [
+          {
+            text: 'Guide',
+            link: '/guide/'
+          },
         ],
         sidebar: {
-        }
+          '/guide/': genSidebarConfig('Guide', 'Usage', 'Advanced'),
+        },
       },
       '/zh/': {
         label: '简体中文',
@@ -64,20 +80,29 @@ module.exports = {
           },
         },
         nav: [
+          {
+            text: '指南',
+            link: '/zh/guide/'
+          },
         ],
         sidebar: {
-        }
+          '/zh/guide/': genSidebarConfig('指南'),
+        },
       },
     },
   },
 };
 
-function genSidebarConfig(title) {
+function genSidebarConfig(guide) {
   return [
     {
-      title,
+      title: guide,
       collapsable: false,
       children: [
+        '',
+        'install',
+        'usage',
+        'advanced',
       ],
     },
   ];

@@ -1,34 +1,4 @@
-# uitest
-
----
-
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
-[![npm download][download-image]][download-url]
-
-[npm-image]: https://img.shields.io/npm/v/uitest.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/uitest
-[travis-image]: https://img.shields.io/travis/macacajs/uitest.svg?style=flat-square
-[travis-url]: https://travis-ci.org/macacajs/uitest
-[coveralls-image]: https://img.shields.io/coveralls/macacajs/uitest.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/macacajs/uitest?branch=master
-[download-image]: https://img.shields.io/npm/dm/uitest.svg?style=flat-square
-[download-url]: https://npmjs.org/package/uitest
-
-> Run mocha in a browser environment.
-
-## Installation
-
-```bash
-$ npm i uitest --save-dev
-```
-
-## Sample
-
-[uitest-sample](//github.com/macaca-sample/uitest-sample)
-
-## Usage
+# Usage
 
 You should configure your entry HTML by including `uitest-mocha-shim.js`.
 
@@ -67,14 +37,13 @@ Here is an example `test.html`
     });
     </script>
     <script>
-    // will generate the coverage file if `window.__coverage__` is existed.
     _macaca_uitest.run();
     </script>
   </body>
 </html>
 ```
 
-### Node.js
+## Start with Node.js
 
 Your can start uitest using Node API:
 
@@ -95,9 +64,11 @@ uitest({
 });
 ```
 
-### Gulp
+![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
 
-Or with Gulp:
+![](http://ww1.sinaimg.cn/large/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
+
+## Use with Gulp
 
 ```bash
 $ npm i gulp-uitest --save-dev
@@ -120,18 +91,12 @@ gulp.task('test', function() {
 
 ```
 
-### Screenshots
+## Use Screenshots
 
 ```javascript
 _macaca_uitest.screenshot(name[String], cb[Function]);
 ```
 
-### Advanced
+## Coverage
 
-If you do not want the page to display in retina mode, set `hidpi` to false.
-
-For more options, see [Electron BrowserWindow options](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions)
-
-## License
-
-The MIT License (MIT)
+UITest will generate the coverage file if `window.__coverage__` is existed.
