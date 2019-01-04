@@ -1,5 +1,7 @@
 # Usage
 
+![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
+
 You should configure your entry HTML by including `uitest-mocha-shim.js`.
 
 Here is an example `test.html`
@@ -45,6 +47,8 @@ Here is an example `test.html`
 ```
 
 ## Node.js
+
+![](http://ww1.sinaimg.cn/large/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
 
 Your can start uitest using Node API:
 

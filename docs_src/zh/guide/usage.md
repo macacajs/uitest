@@ -1,5 +1,8 @@
 # 使用
 
+![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
+
+
 可以通过在 HTML 中添加 `uitest-mocha-shim.js` 来进行 uitest 配置。
 
 下面是一个 `test.html` 示例：
@@ -45,6 +48,8 @@
 ```
 
 ## Node.js
+
+![](http://ww1.sinaimg.cn/large/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
 
 可以通过 Node API 来启动 uitest：
 
