@@ -18,119 +18,25 @@
 
 > Run mocha in a browser environment.
 
+<!-- GITCONTRIBUTOR_START -->
+
+## Contributors
+
+|[<img src="https://avatars1.githubusercontent.com/u/1011681?v=4" width="100px;"/><br/><sub><b>xudafeng</b></sub>](https://github.com/xudafeng)<br/>|[<img src="https://avatars3.githubusercontent.com/u/4006436?v=4" width="100px;"/><br/><sub><b>meowtec</b></sub>](https://github.com/meowtec)<br/>|[<img src="https://avatars1.githubusercontent.com/u/11460601?v=4" width="100px;"/><br/><sub><b>zivyangll</b></sub>](https://github.com/zivyangll)<br/>
+| :---: | :---: | :---: |
+
+
+This project follows the git-contributor [spec](https://github.com/xudafeng/git-contributor), auto upated at `Sat Jan 05 2019 01:18:44 GMT+0800`.
+
+<!-- GITCONTRIBUTOR_END -->
+
 ## Installation
 
 ```bash
 $ npm i uitest --save-dev
 ```
 
-## Sample
-
-[uitest-sample](//github.com/macaca-sample/uitest-sample)
-
-## Usage
-
-You should configure your entry HTML by including `uitest-mocha-shim.js`.
-
-Here is an example `test.html`
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>macaca mocha test</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./node_modules/mocha/mocha.css" />
-  </head>
-  <body>
-    <div id="mocha"></div>
-    <script src="./node_modules/mocha/mocha.js"></script>
-    <script src='./node_modules/uitest/uitest-mocha-shim.js'></script>
-    <script src="./node_modules/should/should.js"></script>
-    <script>
-    _macaca_uitest.setup({
-      ui: 'bdd',
-      timeout: 5000,
-      slow: 2000
-    });
-    </script>
-    <script>
-    describe('sample', function() {
-
-      beforeEach('init', function() {
-      });
-
-      it('#case_1', function() {
-      });
-
-    });
-    </script>
-    <script>
-    // will generate the coverage file if `window.__coverage__` is existed.
-    _macaca_uitest.run();
-    </script>
-  </body>
-</html>
-```
-
-### Node.js
-
-Your can start uitest using Node API:
-
-```javascript
-const uitest = require('uitest');
-
-uitest({
-  url: 'file:///Users/name/path/index.html',
-  width: 600,
-  height: 480,
-  hidpi: false,
-  useContentSize: true,
-  show: false,
-}).then(() => {
-  console.log('uitest success')
-}).catch(() => {
-  console.log('uitest error')
-});
-```
-
-### Gulp
-
-Or with Gulp:
-
-```bash
-$ npm i gulp-uitest --save-dev
-```
-
-```javascript
-const uitest = require('gulp-uitest');
-//test
-gulp.task('test', function() {
-  return gulp
-    .src('test/html/index.html')
-    .pipe(uitest({
-      width: 600,
-      height: 480,
-      hidpi: false,
-      useContentSize: true,
-      show: false,
-    }));
-});
-
-```
-
-### Screenshots
-
-```javascript
-_macaca_uitest.screenshot(name[String], cb[Function]);
-```
-
-### Advanced
-
-If you do not want the page to display in retina mode, set `hidpi` to false.
-
-For more options, see [Electron BrowserWindow options](http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions)
+For more help, please visite: [macacajs.github.io/uitest](//macacajs.github.io/uitest)
 
 ## License
 

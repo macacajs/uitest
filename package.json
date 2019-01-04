@@ -17,6 +17,7 @@
   "devDependencies": {
     "co-mocha": "*",
     "detect-port": "1",
+    "git-contributor": "^1.0.8",
     "ipv4": "1",
     "jshint": "*",
     "mocha": "*",
@@ -28,7 +29,8 @@
     "test": "nyc --reporter=lcov --reporter=text mocha",
     "lint": "jshint .",
     "docs:dev": "vuepress dev docs_src",
-    "docs:build": "vuepress build docs_src"
+    "docs:build": "vuepress build docs_src",
+    "contributor": "git-contributor"
   },
   "pre-commit": [
     "lint"
