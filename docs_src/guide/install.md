@@ -2,29 +2,18 @@
 
 ## Requirements
 
-To install macaca-datahub, [Node.js](https://nodejs.org) environment is required.
+To install uitest, [Node.js](https://nodejs.org) environment is required.
 
 ## Installation
 
-Macaca datahub is distibuted through npm. To install it, run the following command line:
-
 ```bash
-$ npm i macaca-datahub -g
+$ npm i uitest --save-dev
 ```
 
-## Common Usage
-
-Start datahub server
+## Sample
 
 ```bash
-$ datahub server
+$ git clone git@github.com:macaca-sample/uitest-sample.git
+$ cd uitest-sample
+$ npm run test
 ```
-
-The server will create backup files with prefix 'macaca-datahub.data-backup-' for the database periodically.
-
-## Run with docker
-
-```bash
-$ docker run -it -p 9200:9200 -p 9300:9300 macacajs/macaca-datahub
-```
-
