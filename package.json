@@ -20,6 +20,7 @@
     "git-contributor": "^1.0.8",
     "ipv4": "1",
     "jshint": "*",
+    "macaca-ecosystem": "*",
     "mocha": "*",
     "nyc": "^13.1.0",
     "pre-commit": "*",

@@ -1,5 +1,7 @@
 'use strict';
 
+const macacaEcosystem = require('macaca-ecosystem');
+
 const name = 'uitest';
 
 const title = 'Macaca UITest';
@@ -63,6 +65,7 @@ module.exports = {
             text: 'Guide',
             link: '/guide/'
           },
+          macacaEcosystem.en,
         ],
         sidebar: {
           '/guide/': genSidebarConfig('Guide', 'Usage', 'Advanced'),
@@ -84,6 +87,7 @@ module.exports = {
             text: '指南',
             link: '/zh/guide/'
           },
+          macacaEcosystem.zh,
         ],
         sidebar: {
           '/zh/guide/': genSidebarConfig('指南'),
