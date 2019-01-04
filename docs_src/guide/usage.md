@@ -1,7 +1,5 @@
 # Usage
 
-![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
-
 You should configure your entry HTML by including `uitest-mocha-shim.js`.
 
 Here is an example `test.html`
@@ -39,16 +37,13 @@ Here is an example `test.html`
     });
     </script>
     <script>
-    // will generate the coverage file if `window.__coverage__` is existed.
     _macaca_uitest.run();
     </script>
   </body>
 </html>
 ```
 
-## Node.js
-
-![](http://ww1.sinaimg.cn/large/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
+## Start with Node.js
 
 Your can start uitest using Node API:
 
@@ -69,9 +64,11 @@ uitest({
 });
 ```
 
-## Gulp
+![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
 
-Or with Gulp:
+![](http://ww1.sinaimg.cn/large/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
+
+## Use with Gulp
 
 ```bash
 $ npm i gulp-uitest --save-dev
@@ -94,9 +91,12 @@ gulp.task('test', function() {
 
 ```
 
-## Screenshots
+## Use Screenshots
 
 ```javascript
 _macaca_uitest.screenshot(name[String], cb[Function]);
 ```
 
+## Coverage
+
+UITest will generate the coverage file if `window.__coverage__` is existed.

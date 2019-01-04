@@ -3,7 +3,6 @@ node_modules
 npm-debug.log
 .idea/*
 .nyc_output
-.project
-build/
+docs/
 *.sw*
 *.un~

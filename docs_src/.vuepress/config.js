@@ -34,6 +34,11 @@ module.exports = {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-49226133-2');
+    `],
+    ['style', {}, `
+      img {
+        width: 100%;
+      }
     `]
   ],
   serviceWorker: true,
@@ -56,7 +61,7 @@ module.exports = {
         nav: [
           {
             text: 'Guide',
-            link: '/guide/install.html'
+            link: '/guide/'
           },
         ],
         sidebar: {
@@ -77,7 +82,7 @@ module.exports = {
         nav: [
           {
             text: '指南',
-            link: '/zh/guide/install.html'
+            link: '/zh/guide/'
           },
         ],
         sidebar: {
@@ -94,6 +99,7 @@ function genSidebarConfig(guide) {
       title: guide,
       collapsable: false,
       children: [
+        '',
         'install',
         'usage',
         'advanced',

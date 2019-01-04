@@ -1,6 +1,3 @@
 .git/
 node_modules/
 docs/
-build/
-assets/
-dist/
