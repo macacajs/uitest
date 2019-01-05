@@ -25,7 +25,7 @@ module.exports = {
   head: [
     ['link', {
       rel: 'icon',
-      href: '/assets/favicon.ico'
+      href: 'https://macacajs.github.io/assets/favicon.ico'
     }],
     ['script', {
       async: true,
