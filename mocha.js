@@ -3949,7 +3949,17 @@ function getSuite(suite, totalTests) {
 
 function done(output, config, failures, exit) {
   try {
-    require('fs').writeFileSync('/Users/ziv/gitlab/ziv.yll/hilo/zilou.json', JSON.stringify(output, null, 2), 'utf8');
+    var fs =  require('fs');
+    var path = require('path');
+
+    var reportsDir = path.join(process.cwd(), 'reports');
+
+    if (!(fs.existsSync(reportsDir) && fs.statSync(reportsDir).isDirectory())) {
+      fs.mkdirSync(reportsDir);
+    }
+
+    var reportsFile = path.join(reportsDir, 'json-final.json');
+    fs.writeFileSync(reportsFile, JSON.stringify(output, null, 2), 'utf8');
     // support torchjs exit
     exit && exit(failures ? 1 : 0);
   } catch (e) {
@@ -12313,18 +12323,18 @@ function mkdirP (p, opts, f, made) {
     else if (!opts || typeof opts !== 'object') {
         opts = { mode: opts };
     }
-    
+
     var mode = opts.mode;
     var xfs = opts.fs || fs;
-    
+
     if (mode === undefined) {
         mode = _0777 & (~process.umask());
     }
     if (!made) made = null;
-    
+
     var cb = f || function () {};
     p = path.resolve(p);
-    
+
     xfs.mkdir(p, mode, function (er) {
         if (!er) {
             made = made || p;
@@ -12357,10 +12367,10 @@ mkdirP.sync = function sync (p, opts, made) {
     if (!opts || typeof opts !== 'object') {
         opts = { mode: opts };
     }
-    
+
     var mode = opts.mode;
     var xfs = opts.fs || fs;
-    
+
     if (mode === undefined) {
         mode = _0777 & (~process.umask());
     }
