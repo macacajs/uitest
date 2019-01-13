@@ -4,6 +4,6 @@ node_modules
 .jshintrc
 .jshintignore
 docs
-docs_src
+docs_dist
 *.sw*
 *.un~

@@ -1,4 +1,4 @@
 .git/
 node_modules/
-docs/
+docs_dist/
 mocha.js
