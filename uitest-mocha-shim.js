@@ -46,7 +46,7 @@
       }, 100);
     },
 
-    appendToContext: function (mocha, content) {
+    appendToContext: function(mocha, content) {
       try {
         const test = mocha.currentTest || mocha.test;
         if (!test.context) {
