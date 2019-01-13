@@ -16,13 +16,13 @@ $ npm i uitest --save-dev
 
 ---
 
-::: tip
+::: tip 浏览器运行
 UITest 支持在浏览器中运行。
 :::
 
 ![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
 
-::: tip
+::: tip 命令行运行
 当然，UITest 也支持在命令行环境运行。
 :::
 

@@ -17,13 +17,13 @@ $ npm i uitest --save-dev
 
 ---
 
-::: tip
+::: tip Browser
 UITest support running in the browser.
 :::
 
 ![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
 
-::: tip
+::: tip Headless
 Of course, UITest also supports running in the command-line environment.
 :::
 

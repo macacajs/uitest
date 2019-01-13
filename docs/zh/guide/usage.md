@@ -15,7 +15,7 @@
   </head>
   <body>
     <div id="mocha"></div>
-    <script src="./mocha.js"></script>
+    <script src="./node_modules/uitest/mocha.js"></script>
     <script src='./node_modules/uitest/uitest-mocha-shim.js'></script>
     <script src="./node_modules/should/should.js"></script>
     <script>
