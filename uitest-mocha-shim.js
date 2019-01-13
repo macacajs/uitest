@@ -36,7 +36,7 @@
         ipcRenderer.send('ipc', {
           action: 'screenshot',
           data: {
-            dir: './test/screenshot/' + name
+            dir: './reports/screenshots/' + name
           }
         });
 
