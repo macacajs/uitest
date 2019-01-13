@@ -23,38 +23,6 @@
   }
 
   window._macaca_uitest = {
-    stringify: function(obj, replacer, spaces, cycleReplacer) {
-      return JSON.stringify(obj, this.serializer(replacer, cycleReplacer), spaces);
-    },
-
-    serializer: function(replacer, cycleReplacer) {
-      var stack = [];
-      var keys = [];
-
-      cycleReplacer = cycleReplacer || function(key, value) {
-        if (stack[0] === value) {
-          return '[Circular ~]';
-        }
-        return `[Circular ~.${keys.slice(0, stack.indexOf(value)).join('.')}]`;
-      };
-
-      return function(key, value) {
-        if (stack.length) {
-          var thisPos = stack.indexOf(this);
-          ~thisPos ? stack.splice(thisPos + 1) : stack.push(this);
-          ~thisPos ? keys.splice(thisPos, Infinity, key) : keys.push(key);
-
-          if (~stack.indexOf(value)) {
-            value = cycleReplacer.call(this, key, value);
-          }
-        } else {
-          stack.push(value);
-        }
-
-        return replacer == null ? value : replacer.call(this, key, value);
-      };
-    },
-
     screenshot: function(name, cb) {
       if (!isElectron) {
         return cb();
@@ -76,6 +44,22 @@
           cb();
         }, 100);
       }, 100);
+    },
+
+    appendToContext: function (mocha, content) {
+      try {
+        const test = mocha.currentTest || mocha.test;
+        if (!test.context) {
+          test.context = content;
+        } else if (Array.isArray(test.context)) {
+          test.context.push(content);
+        } else {
+          test.context = [test.context];
+          test.context.push(content);
+        }
+      } catch (e) {
+        console.log('error', e);
+      }
     },
 
     setup: function(options) {
