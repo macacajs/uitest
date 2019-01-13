@@ -3949,7 +3949,17 @@ function getSuite(suite, totalTests) {
 
 function done(output, config, failures, exit) {
   try {
-    require('fs').writeFileSync('/Users/ziv/gitlab/ziv.yll/hilo/zilou.json', JSON.stringify(output, null, 2), 'utf8');
+    var fs =  require('fs');
+    var path = require('path');
+
+    var reportsDir = path.join(process.cwd(), 'reports');
+
+    if (!(fs.existsSync(reportsDir) && fs.statSync(reportsDir).isDirectory())) {
+      fs.mkdirSync(reportsDir);
+    }
+
+    var reportsFile = path.join(reportsDir, 'json-final.json');
+    fs.writeFileSync(reportsFile, JSON.stringify(output, null, 2), 'utf8');
     // support torchjs exit
     exit && exit(failures ? 1 : 0);
   } catch (e) {
