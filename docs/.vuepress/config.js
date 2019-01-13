@@ -7,7 +7,7 @@ const name = 'uitest';
 const title = 'Macaca UITest';
 
 module.exports = {
-  dest: 'docs',
+  dest: 'docs_dist',
   base: `/${name}/`,
 
   locales: {
@@ -47,7 +47,7 @@ module.exports = {
   themeConfig: {
     repo: `macacajs/${name}`,
     editLinks: true,
-    docsDir: 'docs_src',
+    docsDir: 'docs',
     locales: {
       '/': {
         label: 'English',

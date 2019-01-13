@@ -46,6 +46,22 @@
       }, 100);
     },
 
+    appendToContext: function(mocha, content) {
+      try {
+        const test = mocha.currentTest || mocha.test;
+        if (!test.context) {
+          test.context = content;
+        } else if (Array.isArray(test.context)) {
+          test.context.push(content);
+        } else {
+          test.context = [test.context];
+          test.context.push(content);
+        }
+      } catch (e) {
+        console.log('error', e);
+      }
+    },
+
     setup: function(options) {
       var mochaOptions = options;
 
