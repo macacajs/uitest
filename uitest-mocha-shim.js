@@ -23,6 +23,14 @@
   }
 
   window._macaca_uitest = {
+    saveScreenshot: function(context, cb) {
+      const name = `${new Date().getTime()}.png`;
+      this.screenshot(name, () => {
+        this.appendToContext(context, `./screenshots/${name}`);
+        cb();
+      });
+    },
+
     screenshot: function(name, cb) {
       if (!isElectron) {
         return cb();
