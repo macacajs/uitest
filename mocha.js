@@ -4025,7 +4025,7 @@ function Spec(runner) {
 
   this.done = (failures, exit) => done(this.output, this.config, failures, exit);
 
-  runner.on('start', function() {
+  runner.on('start', () => {
     this._originSuiteData = runner.suite;
   });
 
@@ -4034,7 +4034,7 @@ function Spec(runner) {
     handleTestEnd();
   });
 
-  runner.once('end', function() {
+  runner.once('end', () => {
     handleTestEnd(true);
     self.epilogue.bind(self);
   });
