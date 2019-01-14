@@ -3857,7 +3857,8 @@ function transferCode(data) {
     .replace(/\r\n?|[\n\u2028\u2029]/g, '\n')
     .replace(/^\uFEFF/, '')
     .replace(/^function\s*\(.*\)\s*{|\(.*\)\s*=>\s*{?/, '')
-    .replace(/\s*\}$/, '');
+    .replace(/\s*\}$/, '')
+    .replace(/&quot;/g, '');
 
   const spaces = data.match(/^\n?( *)/)[1].length;
   const tabs = data.match(/^\n?(\t*)/)[1].length;
@@ -3926,7 +3927,7 @@ function getSuite(suite, totalTests) {
     time: 0
   };
   const queue = [];
-  let result = JSON.parse(suite);
+  let result = JSON.parse(suite.replace(/&quot;/g, ''));
   let next = result;
   totalTests.total++;
   while (next) {
@@ -16244,4 +16245,3 @@ function hasOwnProperty(obj, prop) {
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./support/isBuffer":75,"_process":56,"inherits":74}]},{},[1]);
-
