@@ -4076,8 +4076,9 @@ function Spec(runner) {
     }
   });
 
-  runner.on('fail', function(test) {
+  runner.on('fail', function(test, err) {
     console.log(indent() + color('fail', '  %d) %s'), ++n, test.title);
+    console.log(indent(), color('fail', require('../utils').escape(err)));
   });
 }
 
