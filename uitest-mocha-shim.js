@@ -12,13 +12,21 @@
     var { ipcRenderer } = require('electron');
     var remoteConsole = remote.require('console');
 
+    var htmldecode = s => {
+      var div = document.createElement('div');
+      div.innerHTML = s;
+      return div.innerText || div.textContent;
+    };
     // we have to do this so that mocha output doesn't look like shit
-    console.log = function () {
-      if (/stdout:/.test(arguments[0])) {
+    console.log = function() {
+      var args = [].slice.call(arguments);
+      if (/stdout:/.test(args[0])) {
         return;
       }
-
-      remoteConsole.log.apply(remoteConsole, arguments);
+      args.map(content => {
+        return htmldecode(content);
+      });
+      remoteConsole.log.apply(remoteConsole, args);
     };
   }
 
