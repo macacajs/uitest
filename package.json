@@ -1,6 +1,6 @@
 {
   "name": "uitest",
-  "version": "1.3.10",
+  "version": "1.3.11",
   "description": "Run mocha in a browser environment.",
   "keywords": [
     "uitest"
@@ -19,12 +19,12 @@
     "co-mocha": "*",
     "detect-port": "1",
     "git-contributor": "^1.0.8",
+    "husky": "^1.3.1",
     "ipv4": "1",
     "jshint": "*",
     "macaca-ecosystem": "*",
     "mocha": "*",
     "nyc": "^13.1.0",
-    "pre-commit": "*",
     "vuepress": "^0.14.8"
   },
   "scripts": {
@@ -34,8 +34,10 @@
     "docs:build": "vuepress build docs_src",
     "contributor": "git-contributor"
   },
-  "pre-commit": [
-    "lint"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint"
+    }
+  },
   "license": "MIT"
 }
