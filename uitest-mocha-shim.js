@@ -23,7 +23,7 @@
       if (/stdout:/.test(args[0])) {
         return;
       }
-      args.map(content => {
+      args = args.map(content => {
         return htmldecode(content);
       });
       remoteConsole.log.apply(remoteConsole, args);
