@@ -4037,7 +4037,7 @@ function Spec(runner) {
 
   runner.once('end', () => {
     handleTestEnd(true);
-    self.epilogue.bind(self);
+    self.epilogue();
   });
 
   runner.on('suite', function(suite) {
