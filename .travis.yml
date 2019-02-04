@@ -9,8 +9,9 @@ addons:
 install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1366x768x24 > /dev/null 2>&1 &
-  - npm i
-script:
+  - npm i vuepress macaca-ecosystem
+  # https://github.com/webpack-contrib/terser-webpack-plugin/issues/66
+  - npm i terser@3.14.1
   - npm run docs:build
   - cd ./docs_dist
   - git init
@@ -18,6 +19,8 @@ script:
   - git commit -m "Travis CI Auto Builder"
   - git push --quiet --force https://$REPO_TOKEN@github.com/macacajs/uitest.git master:gh-pages
   - cd ..
+script:
+  - npm i
   - npm run lint
   - npm run test
 after_script:
