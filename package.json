@@ -30,8 +30,8 @@
   "scripts": {
     "test": "nyc --reporter=lcov --reporter=text mocha",
     "lint": "jshint .",
-    "docs:dev": "vuepress dev docs_src",
-    "docs:build": "vuepress build docs_src",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "contributor": "git-contributor"
   },
   "husky": {
