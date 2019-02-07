@@ -13,7 +13,7 @@ install:
   # https://github.com/webpack-contrib/terser-webpack-plugin/issues/66
   - npm i terser@3.14.1
   - npm run docs:build
-  - `npm bin`/macaca-ecosystem push --cwd ./docs_dist --branch gh-pages
+  - $(npm bin)/macaca-ecosystem push --cwd ./docs_dist --branch gh-pages
 script:
   - npm i
   - npm run lint
