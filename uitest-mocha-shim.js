@@ -103,7 +103,7 @@
           // ignore tests
           const testsDir = path.join(process.cwd(), 'tests');
           for (const k in window.__coverage__) {
-            if (!!~k.indexOf(testsDir)) {
+            if (~k.indexOf(testsDir)) {
               delete window.__coverage__[k];
             }
           }
@@ -114,7 +114,7 @@
           ipcRenderer.send('ipc', {
             action: 'exit',
             data: {
-              failedCount,
+              failedCount
             }
           });
         }
