@@ -31,6 +31,54 @@
   }
 
   window._macaca_uitest = {
+    switchScene: function() {
+      var args = Array.prototype.slice.call(arguments);
+      var promise = new Promise((resolve, reject) => {
+        ipcRenderer.send('ipc', {
+          action: 'switchScene',
+          data: args[0],
+        });
+        setTimeout(() => {
+          resolve();
+        }, 100);
+      });
+      if (args.length > 1) {
+        var cb = args[1];
+
+        return promise.then(data => {
+          cb.call(this, null, data);
+        }).catch(err => {
+          cb.call(this, `Error occurred: ${err}`);
+        });
+      } else {
+        return promise;
+      }
+    },
+
+    switchAllScene: function() {
+      var args = Array.prototype.slice.call(arguments);
+      var promise = new Promise((resolve, reject) => {
+        ipcRenderer.send('ipc', {
+          action: 'switchAllScenes',
+          data: args[0],
+        });
+        setTimeout(() => {
+          resolve();
+        }, 100);
+      });
+      if (args.length > 1) {
+        var cb = args[1];
+
+        return promise.then(data => {
+          cb.call(this, null, data);
+        }).catch(err => {
+          cb.call(this, `Error occurred: ${err}`);
+        });
+      } else {
+        return promise;
+      }
+    },
+
     saveScreenshot: function(context, cb) {
       const name = `${new Date().getTime()}.png`;
       this.screenshot(name, () => {
@@ -103,7 +151,7 @@
           // ignore tests
           const testsDir = path.join(process.cwd(), 'tests');
           for (const k in window.__coverage__) {
-            if (~k.indexOf(testsDir)) {
+            if (!!~k.indexOf(testsDir)) {
               delete window.__coverage__[k];
             }
           }
@@ -114,7 +162,7 @@
           ipcRenderer.send('ipc', {
             action: 'exit',
             data: {
-              failedCount
+              failedCount,
             }
           });
         }

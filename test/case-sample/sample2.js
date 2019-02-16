@@ -13,8 +13,12 @@ describe('test/case-sample/sample2.js', function() {
     console.log('before', res);
   });
 
-  beforeEach(() => {
-    console.log('beforeEach');
+  beforeEach(async () => {
+    const p = new Promise((resolve, reject) => {
+      resolve('res');
+    });
+    const res = await p;
+    console.log('beforeEach', res);
   });
 
   after(() => {
