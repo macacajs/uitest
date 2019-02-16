@@ -55,7 +55,7 @@
       }
     },
 
-    switchAllScene: function() {
+    switchAllScenes: function() {
       var args = Array.prototype.slice.call(arguments);
       var promise = new Promise((resolve, reject) => {
         ipcRenderer.send('ipc', {
