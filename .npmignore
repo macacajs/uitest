@@ -1,8 +1,8 @@
 node_modules
 .travis.yml
 .nyc_output
-.jshintrc
-.jshintignore
+.eslintrc
+.eslintignore
 docs
 docs_dist
 *.sw*
