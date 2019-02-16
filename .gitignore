@@ -4,6 +4,7 @@ npm-debug.log
 .idea/*
 .nyc_output
 docs_dist/
-coverage
+coverage/
+reports/
 *.sw*
 *.un~

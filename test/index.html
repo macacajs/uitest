@@ -1,102 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mocha</title>
+    <title>UITest</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
   </head>
   <body>
     <div id="mocha"></div>
-    <script src="../node_modules/should/should.js"></script>
-    <script src="./mocha.js"></script>
+    <script src="../mocha.js"></script>
+    <script src="../uitest-mocha-shim.js"></script>
     <script>
-    mocha.setup({
-      ui: 'bdd',
-      timeout: 5000,
-      slow: 2000,
-      reporter: 'spec'
-    });
+      _macaca_uitest.setup({
+        ui: 'bdd',
+        timeout: 60 * 1000,
+        slow: 3 * 1000
+      });
     </script>
+    <script src="./case-sample/sample1.js"></script>
     <script>
-
-var { remote } = require('electron')
-var remoteConsole = remote.require('console')
-
-// we have to do this so that mocha output doesn't look like shit
-console.log = function () {
-  if (typeof arguments[0] === 'string') {
-    if (/passing/.test(arguments[0])) {
-      arguments[0] = '\u001b[32m' + arguments[0] + '\u001b[0m';
-    } else if (/failing/.test(arguments[0])) {
-      arguments[0] = '\u001b[31m' + arguments[0] + '\u001b[0m';
-    }
-  }
-
-  remoteConsole.log.apply(remoteConsole, arguments)
-}
-
-var ipcRenderer = require('electron').ipcRenderer;
-
-
-    var util = {
-      screenshot: function(name, cb) {
-        var mochaElem = document.getElementById('mocha');
-        mochaElem.style.display = 'none';
-
-        if (typeof process === 'undefined') {
-          return cb();
-        }
-
-        setTimeout(function() {
-          ipcRenderer.send('ipc', {
-            action: 'screenshot',
-            data: {
-              dir: './test/screenshot/' + name
-            }
-          });
-          mochaElem.style.display = 'block';
-          setTimeout(function() {
-            cb();
-          }, 1000);
-        }, 100);
-      }
-    };
-    describe('true', function() {
-      this.timeout(30 * 1000);
-
-      it('1should be true', function(done) {
-        util.screenshot('aa.png', function() {
-          console.log('1diff')
-            //throw Error();
-          done();
-        });
-      });
-
-      it('2should be true', function(done) {
-        util.screenshot('aa1.png', function() {
-          console.log('2diff')
-          done();
-        });
-      });
-
-      it('3should be true', function(done) {
-        util.screenshot('aa123.png', function() {
-          console.log('3diff')
-          done();
-        });
-      });
-    });
-    </script>
-    <script>
-mocha.run(function(failedCount) {
-  ipcRenderer.send('ipc', {
-    action: 'exit',
-    data: {
-      failedCount: failedCount
-    }
-  });
-});
+      _macaca_uitest.run();
     </script>
   </body>
 </html>

@@ -1,17 +1,16 @@
 'use strict';
 
+const path = require('path');
 const uitest = require('..');
-const ipv4 = require('ipv4');
 const detect = require('detect-port');
 
-describe('test', function() {
-  this.timeout(300 * 1000);
-  it('test', function *() {
-    const port = yield detect(8081);
-    yield uitest({
-      url: `http://${ipv4}:${port}/test/`,
-      width: 400,
-      height: 300
+describe('test/uietst.test.js', () => {
+  it('run test should be ok', async () => {
+    const url = path.join(__dirname, 'index.html');
+    await uitest({
+      url: `file://${url}`,
+      width: 800,
+      height: 600
     });
   });
 });
