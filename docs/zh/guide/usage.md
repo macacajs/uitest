@@ -106,4 +106,6 @@ _macaca_uitest.screenshot(name[String], cb[Function]);
 
 当浏览器上下文中有 `window.__coverage__` 将自动生成覆盖率报告。
 
-process.env.MACACA_COVERAGE_IGNORE_REG 可以传入 coverage 忽略规则。
+process.env.MACACA_COVERAGE_IGNORE_REG 可以传入 coverage 忽略规则，例如：
+
+MACACA_COVERAGE_IGNORE_REG='test/' 会忽略所有 `./test` 目录下的文件。
