@@ -105,3 +105,5 @@ _macaca_uitest.screenshot(name[String], cb[Function]);
 ## 覆盖率
 
 当浏览器上下文中有 `window.__coverage__` 将自动生成覆盖率报告。
+
+process.env.MACACA_COVERAGE_IGNORE_REG 可以传入 coverage 忽略规则。

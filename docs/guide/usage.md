@@ -100,3 +100,5 @@ _macaca_uitest.screenshot(name[String], cb[Function]);
 ## Coverage
 
 UITest will generate the coverage file if `window.__coverage__` is existed.
+
+process.env.MACACA_COVERAGE_IGNORE_REG support coverage ignore rule.

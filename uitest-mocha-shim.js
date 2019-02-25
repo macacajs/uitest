@@ -141,7 +141,8 @@
 
     run: function() {
       return mocha.run(function(failedCount) {
-        if (window.__coverage__) {
+        const __coverage__ = window.__coverage__;
+        if (__coverage__) {
           const coverageDir = path.join(process.cwd(), 'coverage');
           try {
             fs.mkdirSync(path.join(coverageDir));
@@ -149,13 +150,16 @@
           } catch (e) {}
           const file = path.join(coverageDir, '.temp', `${+new Date()}_coverage.json`);
           // ignore tests
-          const testsDir = path.join(process.cwd(), 'tests');
-          for (const k in window.__coverage__) {
-            if (!!~k.indexOf(testsDir)) {
-              delete window.__coverage__[k];
+          const coverageIgnore = process.env.MACACA_COVERAGE_IGNORE_REG;
+          if (coverageIgnore) {
+            const ignoreReg = new RegExp(coverageIgnore, 'i');
+            for (const k in __coverage__) {
+              if (ignoreReg.test(k)) {
+                delete __coverage__[k];
+              }
             }
           }
-          fs.writeFileSync(file, JSON.stringify(window.__coverage__, null, 2));
+          fs.writeFileSync(file, JSON.stringify(__coverage__, null, 2));
           console.log(`coverage file created at: ${file}`);
         }
         if (isElectron) {
@@ -171,3 +175,4 @@
   };
 
 })();
+
