@@ -141,7 +141,8 @@
 
     run: function() {
       return mocha.run(function(failedCount) {
-        if (window.__coverage__) {
+        const __coverage__ = window.__coverage__;
+        if (__coverage__) {
           const coverageDir = path.join(process.cwd(), 'coverage');
           try {
             fs.mkdirSync(path.join(coverageDir));
@@ -158,7 +159,7 @@
               }
             }
           }
-          fs.writeFileSync(file, JSON.stringify(window.__coverage__, null, 2));
+          fs.writeFileSync(file, JSON.stringify(__coverage__, null, 2));
           console.log(`coverage file created at: ${file}`);
         }
         if (isElectron) {
