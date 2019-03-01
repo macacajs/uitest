@@ -34,6 +34,9 @@
     switchScene: function() {
       var args = Array.prototype.slice.call(arguments);
       var promise = new Promise((resolve, reject) => {
+        if (!isElectron) {
+          return resolve();
+        }
         ipcRenderer.send('ipc', {
           action: 'switchScene',
           data: args[0],
@@ -58,6 +61,9 @@
     switchAllScenes: function() {
       var args = Array.prototype.slice.call(arguments);
       var promise = new Promise((resolve, reject) => {
+        if (!isElectron) {
+          return resolve();
+        }
         ipcRenderer.send('ipc', {
           action: 'switchAllScenes',
           data: args[0],
