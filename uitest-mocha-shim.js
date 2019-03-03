@@ -37,16 +37,14 @@
         if (!isElectron) {
           return resolve();
         }
+        ipcRenderer.once('ipc', resolve);
         ipcRenderer.send('ipc', {
           action: 'switchScene',
           data: args[0],
         });
-        setTimeout(() => {
-          resolve();
-        }, 100);
       });
-      if (args.length > 1) {
-        var cb = args[1];
+      if (args.length) {
+        var cb = args[0];
 
         return promise.then(data => {
           cb.call(this, null, data);
@@ -64,13 +62,31 @@
         if (!isElectron) {
           return resolve();
         }
+        ipcRenderer.once('ipc', resolve);
         ipcRenderer.send('ipc', {
           action: 'switchAllScenes',
           data: args[0],
         });
-        setTimeout(() => {
-          resolve();
-        }, 100);
+      });
+      if (args.length) {
+        var cb = args[0];
+
+        return promise.then(data => {
+          cb.call(this, null, data);
+        }).catch(err => {
+          cb.call(this, `Error occurred: ${err}`);
+        });
+      } else {
+        return promise;
+      }
+    },
+
+    saveScreenshot: function(context) {
+      var args = Array.prototype.slice.call(arguments);
+      var promise = new Promise((resolve, reject) => {
+        const name = `${new Date().getTime()}.png`;
+        this.appendToContext(context, `./screenshots/${name}`);
+        resolve(this.screenshot(name));
       });
       if (args.length > 1) {
         var cb = args[1];
@@ -85,35 +101,31 @@
       }
     },
 
-    saveScreenshot: function(context, cb) {
-      const name = `${new Date().getTime()}.png`;
-      this.screenshot(name, () => {
-        this.appendToContext(context, `./screenshots/${name}`);
-        cb();
-      });
-    },
-
-    screenshot: function(name, cb) {
-      if (!isElectron) {
-        return cb();
-      }
-
-      if (typeof process === 'undefined') {
-        return cb();
-      }
-
-      setTimeout(function() {
+    screenshot: function(name) {
+      var args = Array.prototype.slice.call(arguments);
+      var promise = new Promise((resolve, reject) => {
+        if (!isElectron) {
+          return resolve();
+        }
+        ipcRenderer.once('ipc', resolve);
         ipcRenderer.send('ipc', {
           action: 'screenshot',
           data: {
             dir: './reports/screenshots/' + name
           }
         });
+      });
+      if (args.length > 1) {
+        var cb = args[1];
 
-        setTimeout(function() {
-          cb();
-        }, 100);
-      }, 100);
+        return promise.then(data => {
+          cb.call(this, null, data);
+        }).catch(err => {
+          cb.call(this, `Error occurred: ${err}`);
+        });
+      } else {
+        return promise;
+      }
     },
 
     appendToContext: function(mocha, content) {

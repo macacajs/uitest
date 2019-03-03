@@ -4,7 +4,7 @@ const path = require('path');
 const uitest = require('..');
 const detect = require('detect-port');
 
-describe('test/uietst.test.js', () => {
+describe('test/uitest.test.js', () => {
   it('run test should be ok', async () => {
     const url = path.join(__dirname, 'index.html');
     await uitest({
@@ -14,3 +14,4 @@ describe('test/uietst.test.js', () => {
     });
   });
 });
+
