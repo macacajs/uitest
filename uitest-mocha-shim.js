@@ -43,8 +43,8 @@
           data: args[0],
         });
       });
-      if (args.length) {
-        var cb = args[0];
+      if (args.length > 1) {
+        var cb = args[1];
 
         return promise.then(data => {
           cb.call(this, null, data);
@@ -68,8 +68,8 @@
           data: args[0],
         });
       });
-      if (args.length) {
-        var cb = args[0];
+      if (args.length > 1) {
+        var cb = args[1];
 
         return promise.then(data => {
           cb.call(this, null, data);
