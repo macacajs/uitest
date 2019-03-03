@@ -1,7 +1,6 @@
 'use strict';
 
-describe('test/case-sample/sample1.js', function() {
-  this.timeout(30 * 1000);
+describe('test/case-sample/sample1.js', () => {
 
   it('1should be true', done => {
     _macaca_uitest.screenshot('aa.png', () => {

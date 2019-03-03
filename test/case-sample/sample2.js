@@ -2,8 +2,7 @@
 
 const { assert } = chai;
 
-describe('test/case-sample/sample2.js', function() {
-  this.timeout(30 * 1000);
+describe('test/case-sample/sample2.js', () => {
 
   before(async () => {
     const p = new Promise((resolve, reject) => {
