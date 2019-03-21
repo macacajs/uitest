@@ -40,7 +40,7 @@
         ipcRenderer.once('ipc', resolve);
         ipcRenderer.send('ipc', {
           action: 'switchScene',
-          data: args[0],
+          data: args[0]
         });
       });
       if (args.length > 1) {
@@ -65,7 +65,7 @@
         ipcRenderer.once('ipc', resolve);
         ipcRenderer.send('ipc', {
           action: 'switchAllScenes',
-          data: args[0],
+          data: args[0]
         });
       });
       if (args.length > 1) {
@@ -160,7 +160,7 @@
     run: function() {
       return mocha.run(function(failedCount) {
         if (isElectron) {
-           const __coverage__ = window.__coverage__;
+          const __coverage__ = window.__coverage__;
           if (__coverage__) {
             const coverageDir = path.join(process.cwd(), 'coverage');
             try {
@@ -185,7 +185,7 @@
           ipcRenderer.send('ipc', {
             action: 'exit',
             data: {
-              failedCount,
+              failedCount
             }
           });
         }
