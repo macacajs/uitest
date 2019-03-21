@@ -3959,8 +3959,7 @@ function done(output, config, failures, exit) {
       fs.mkdirSync(reportsDir);
     }
 
-    var reportsFile = path.join(reportsDir, 'json-final
-    .json');
+    var reportsFile = path.join(reportsDir, 'json-final.json');
     fs.writeFileSync(reportsFile, JSON.stringify(output, null, 2), 'utf8');
     // support torchjs exit
     exit && exit(failures ? 1 : 0);
