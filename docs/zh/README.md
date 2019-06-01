@@ -20,10 +20,10 @@ $ npm i uitest --save-dev
 UITest 支持在浏览器中运行。
 :::
 
-![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
+![](/uitest/assets/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
 
 ::: tip 命令行运行
 当然，UITest 也支持在命令行环境运行。
 :::
 
-![](http://ww1.sinaimg.cn/large/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
+![](/uitest/assets/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)

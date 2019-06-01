@@ -65,9 +65,9 @@ uitest({
 
 效果如下：
 
-![](http://ww3.sinaimg.cn/large/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
+![](/uitest/assets/6d308bd9gw1f6wsic5dmxj20rl0qqtbi.jpg)
 
-![](http://ww1.sinaimg.cn/large/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
+![](/uitest/assets/6d308bd9gw1f6wsibnfldg20nk0gr7kg.gif)
 
 ## 使用 Gulp
 
