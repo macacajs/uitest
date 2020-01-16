@@ -3,6 +3,7 @@ node_modules
 .nyc_output
 .eslintrc
 .eslintignore
+reports
 docs
 docs_dist
 *.sw*

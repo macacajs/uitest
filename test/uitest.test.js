@@ -2,7 +2,6 @@
 
 const path = require('path');
 const uitest = require('..');
-const detect = require('detect-port');
 
 describe('test/uitest.test.js', () => {
   it('run test should be ok', async () => {
