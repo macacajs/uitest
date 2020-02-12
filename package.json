@@ -1,6 +1,6 @@
 {
   "name": "uitest",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Run mocha in a browser environment.",
   "keywords": [
     "uitest"
@@ -11,7 +11,7 @@
     "url": "git@github.com:macacajs/uitest.git"
   },
   "dependencies": {
-    "macaca-electron": "7.1.11",
+    "macaca-electron": "7",
     "mocha": "^5.2.0"
   },
   "devDependencies": {
