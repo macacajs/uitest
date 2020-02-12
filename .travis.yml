@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 8
+  - 12
 sudo: false
 addons:
   apt:
@@ -10,9 +10,7 @@ install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1366x768x24 > /dev/null 2>&1 &
   - npm i vuepress macaca-ecosystem
-  # https://github.com/webpack-contrib/terser-webpack-plugin/issues/66
-  - npm i terser@3.14.1
-  - npm run docs:build
+  - $(npm bin)/vuepress build docs
   - $(npm bin)/macaca-ecosystem push --cwd ./docs_dist --branch gh-pages
 script:
   - npm i

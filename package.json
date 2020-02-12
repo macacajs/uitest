@@ -1,17 +1,21 @@
 {
   "name": "uitest",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "Run mocha in a browser environment.",
   "keywords": [
     "uitest"
   ],
   "main": "index.js",
+  "files": [
+    "*.js",
+    "lib/**/*.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:macacajs/uitest.git"
   },
   "dependencies": {
-    "macaca-electron": "7.1.11",
+    "macaca-electron": "9",
     "mocha": "^5.2.0"
   },
   "devDependencies": {
@@ -25,13 +29,12 @@
     "macaca-ecosystem": "*",
     "mocha": "*",
     "nyc": "^13.1.0",
-    "vuepress": "^0.14.8"
+    "vuepress": "^1.5.2"
   },
   "scripts": {
     "test": "nyc --reporter=lcov --reporter=text mocha",
     "lint": "eslint --fix .",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
     "contributor": "git-contributor"
   },
   "husky": {
