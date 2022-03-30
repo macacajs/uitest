@@ -7,7 +7,9 @@
   ],
   "main": "index.js",
   "files": [
-    "*.js",
+    "index.js",
+    "mocha.js",
+    "uitest-mocha-shim.js",
     "lib/**/*.js"
   ],
   "repository": {

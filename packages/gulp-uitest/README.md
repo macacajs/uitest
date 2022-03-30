@@ -40,7 +40,7 @@ $ npm i gulp-uitest --save-dev
 ## Usage
 
 ```javascript
-var uitest = require('gulp-uitest');
+const uitest = require('gulp-uitest');
 
 gulp.task('test', [], function() {
   return gulp
