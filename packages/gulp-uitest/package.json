@@ -1,6 +1,6 @@
 {
   "name": "gulp-uitest",
-  "version": "13.0.0",
+  "version": "13.0.1",
   "description": "gulp uitest",
   "keywords": [
     "gulp"
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/xudafeng/gulp-uitest.git"
+    "url": "git://github.com/macacajs/uitest.git"
   },
   "dependencies": {
     "through2": "^2.0.1",
