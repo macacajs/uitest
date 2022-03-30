@@ -1,0 +1,40 @@
+{
+  "name": "gulp-uitest",
+  "version": "13.0.0",
+  "description": "gulp uitest",
+  "keywords": [
+    "gulp"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "lib/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xudafeng/gulp-uitest.git"
+  },
+  "dependencies": {
+    "through2": "^2.0.1",
+    "uitest": "13"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-mocha": "^5.0.0",
+    "git-contributor": "1",
+    "husky": "*",
+    "mocha": "*",
+    "nyc": "^15.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "scripts": {
+    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "lint": "eslint --fix .",
+    "contributor": "git-contributor"
+  },
+  "license": "MIT"
+}
