@@ -1,7 +1,5 @@
 node_modules
-.nyc_output
-docs_dist/
 coverage/
-reports/
+.nyc_output
 *.sw*
 *.un~
