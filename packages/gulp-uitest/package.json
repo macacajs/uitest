@@ -1,6 +1,6 @@
 {
   "name": "gulp-uitest",
-  "version": "13.0.1",
+  "version": "17.0.0",
   "description": "gulp uitest",
   "keywords": [
     "gulp"
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "through2": "^2.0.1",
-    "uitest": "13"
+    "uitest": "17"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
