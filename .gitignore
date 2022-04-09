@@ -3,5 +3,6 @@ node_modules
 docs_dist/
 coverage/
 reports/
+.idea
 *.sw*
 *.un~
