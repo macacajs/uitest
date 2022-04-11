@@ -8,9 +8,8 @@
   } else {
     var fs = require('fs');
     var path = require('path');
-    var { remote } = require('electron');
     var { ipcRenderer } = require('electron');
-    var remoteConsole = remote.require('console');
+    var remoteConsole = require('@electron/remote').getGlobal('console');
 
     var htmldecode = s => {
       var div = document.createElement('div');
