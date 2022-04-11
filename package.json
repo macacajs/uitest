@@ -17,7 +17,7 @@
     "url": "git@github.com:macacajs/uitest.git"
   },
   "dependencies": {
-    "macaca-electron": "17",
+    "macaca-electron": "18",
     "mocha": "^5.2.0"
   },
   "devDependencies": {
