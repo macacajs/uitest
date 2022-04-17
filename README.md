@@ -3,14 +3,14 @@
 ---
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+[![CI][CI-image]][CI-url]
 [![Test coverage][coveralls-image]][coveralls-url]
 [![npm download][download-image]][download-url]
 
 [npm-image]: https://img.shields.io/npm/v/uitest.svg
 [npm-url]: https://npmjs.org/package/uitest
-[travis-image]: https://img.shields.io/travis/macacajs/uitest.svg
-[travis-url]: https://travis-ci.org/macacajs/uitest
+[CI-image]: https://github.com/macacajs/uitest/actions/workflows/ci.yml/badge.svg
+[CI-url]: https://github.com/macacajs/uitest/actions/workflows/ci.yml
 [coveralls-image]: https://img.shields.io/coveralls/macacajs/uitest.svg
 [coveralls-url]: https://coveralls.io/r/macacajs/uitest?branch=master
 [download-image]: https://img.shields.io/npm/dm/uitest.svg
