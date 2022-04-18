@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>如何使用 | Macaca UITest</title>
-    <meta name="generator" content="VuePress 1.8.2">
+    <meta name="generator" content="VuePress 1.9.7">
     <link rel="icon" href="https://macacajs.github.io/assets/favicon.ico">
     <script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-49226133-2"></script>
     <script>
@@ -29,7 +29,7 @@
     </style>
     <meta name="description" content="在浏览器环境中运行测试。">
     
-    <link rel="preload" href="/uitest/assets/css/0.styles.46300ce5.css" as="style"><link rel="preload" href="/uitest/assets/js/app.74bdbc90.js" as="script"><link rel="preload" href="/uitest/assets/js/2.c4280981.js" as="script"><link rel="preload" href="/uitest/assets/js/16.43151740.js" as="script"><link rel="prefetch" href="/uitest/assets/js/10.f763d825.js"><link rel="prefetch" href="/uitest/assets/js/11.d8fdce13.js"><link rel="prefetch" href="/uitest/assets/js/12.870fb196.js"><link rel="prefetch" href="/uitest/assets/js/13.cd6650e9.js"><link rel="prefetch" href="/uitest/assets/js/14.6c6add60.js"><link rel="prefetch" href="/uitest/assets/js/15.1a9ad81c.js"><link rel="prefetch" href="/uitest/assets/js/3.5e04ea21.js"><link rel="prefetch" href="/uitest/assets/js/4.e05c873c.js"><link rel="prefetch" href="/uitest/assets/js/5.76fc70b2.js"><link rel="prefetch" href="/uitest/assets/js/6.498ab014.js"><link rel="prefetch" href="/uitest/assets/js/7.998738ef.js"><link rel="prefetch" href="/uitest/assets/js/8.65316bf2.js"><link rel="prefetch" href="/uitest/assets/js/9.610517b7.js">
+    <link rel="preload" href="/uitest/assets/css/0.styles.46300ce5.css" as="style"><link rel="preload" href="/uitest/assets/js/app.a3ad21d9.js" as="script"><link rel="preload" href="/uitest/assets/js/2.382dbf46.js" as="script"><link rel="preload" href="/uitest/assets/js/16.1de84b9a.js" as="script"><link rel="prefetch" href="/uitest/assets/js/10.fc64c354.js"><link rel="prefetch" href="/uitest/assets/js/11.744bcada.js"><link rel="prefetch" href="/uitest/assets/js/12.5506d60f.js"><link rel="prefetch" href="/uitest/assets/js/13.502bf825.js"><link rel="prefetch" href="/uitest/assets/js/14.a46f4fcd.js"><link rel="prefetch" href="/uitest/assets/js/15.5431b38c.js"><link rel="prefetch" href="/uitest/assets/js/3.84f6ad02.js"><link rel="prefetch" href="/uitest/assets/js/4.3dcf81a5.js"><link rel="prefetch" href="/uitest/assets/js/5.765f9924.js"><link rel="prefetch" href="/uitest/assets/js/6.c0754a73.js"><link rel="prefetch" href="/uitest/assets/js/7.71bebcba.js"><link rel="prefetch" href="/uitest/assets/js/8.195f5c3e.js"><link rel="prefetch" href="/uitest/assets/js/9.1e809362.js">
     <link rel="stylesheet" href="/uitest/assets/css/0.styles.46300ce5.css">
   </head>
   <body>
@@ -132,9 +132,9 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>./node_modules/should/should.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
     _macaca_uitest<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      ui<span class="token operator">:</span> <span class="token string">'bdd'</span><span class="token punctuation">,</span>
-      timeout<span class="token operator">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
-      slow<span class="token operator">:</span> <span class="token number">2000</span>
+      <span class="token literal-property property">ui</span><span class="token operator">:</span> <span class="token string">'bdd'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">slow</span><span class="token operator">:</span> <span class="token number">2000</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
@@ -155,12 +155,12 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><h2 id="通过-node-js-运行"><a href="#通过-node-js-运行" class="header-anchor">#</a> 通过 Node.js 运行</h2> <p>可以通过 Node.js 来启动 UITest：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">uitest</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  url<span class="token operator">:</span> <span class="token string">'file:///Users/name/path/index.html'</span><span class="token punctuation">,</span>
-  width<span class="token operator">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
-  height<span class="token operator">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
-  hidpi<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  useContentSize<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-  show<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'file:///Users/name/path/index.html'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">width</span><span class="token operator">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">height</span><span class="token operator">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">hidpi</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">useContentSize</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">show</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'uitest success'</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -173,18 +173,18 @@ gulp<span class="token punctuation">.</span><span class="token function">task</s
   <span class="token keyword">return</span> gulp
     <span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'test/html/index.html'</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">uitest</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      width<span class="token operator">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
-      height<span class="token operator">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
-      hidpi<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-      useContentSize<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-      show<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">width</span><span class="token operator">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">height</span><span class="token operator">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">hidpi</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">useContentSize</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">show</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 同样的，UITest 运行触发比较灵活，你可以与其他脚本和 pipeline 集成。
 
 </code></pre></div><h2 id="使用截图"><a href="#使用截图" class="header-anchor">#</a> 使用截图</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code>_macaca_uitest<span class="token punctuation">.</span><span class="token function">screenshot</span><span class="token punctuation">(</span>name<span class="token punctuation">[</span>String<span class="token punctuation">]</span><span class="token punctuation">,</span> cb<span class="token punctuation">[</span>Function<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre></div><h2 id="覆盖率"><a href="#覆盖率" class="header-anchor">#</a> 覆盖率</h2> <p>当浏览器上下文中有 <code>window.__coverage__</code> 将自动生成覆盖率报告。</p> <p>process.env.MACACA_COVERAGE_IGNORE_REG 可以传入 coverage 忽略规则，例如：</p> <p>MACACA_COVERAGE_IGNORE_REG='test/' 会忽略所有 <code>./test</code> 目录下的文件。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/macacajs/uitest/edit/master/docs/zh/guide/usage.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">6/1/2019, 6:48:41 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><h2 id="覆盖率"><a href="#覆盖率" class="header-anchor">#</a> 覆盖率</h2> <p>当浏览器上下文中有 <code>window.__coverage__</code> 将自动生成覆盖率报告。</p> <p>process.env.MACACA_COVERAGE_IGNORE_REG 可以传入 coverage 忽略规则，例如：</p> <p>MACACA_COVERAGE_IGNORE_REG='test/' 会忽略所有 <code>./test</code> 目录下的文件。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/macacajs/uitest/edit/master/docs/zh/guide/usage.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2019/6/1 06:48:41</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/uitest/zh/guide/install.html" class="prev">
         安装
@@ -193,6 +193,6 @@ gulp<span class="token punctuation">.</span><span class="token function">task</s
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/uitest/assets/js/app.74bdbc90.js" defer></script><script src="/uitest/assets/js/2.c4280981.js" defer></script><script src="/uitest/assets/js/16.43151740.js" defer></script>
+    <script src="/uitest/assets/js/app.a3ad21d9.js" defer></script><script src="/uitest/assets/js/2.382dbf46.js" defer></script><script src="/uitest/assets/js/16.1de84b9a.js" defer></script>
   </body>
 </html>
