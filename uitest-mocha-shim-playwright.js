@@ -3,19 +3,14 @@
 
   const isPlaywright = true;
 
+  if (!window.__execCommand) {
+    window.__execCommand = async ()=>{};
+  }
+
   window._macaca_uitest = {
     switchScene: function() {
       var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
-        // if (!isElectron) {
-        //   return resolve();
-        // }
-        // ipcRenderer.once('ipc', resolve);
-        // ipcRenderer.send('ipc', {
-        //   action: 'switchScene',
-        //   data: args[0]
-        // });
-      });
+      var promise = window.__execCommand('switchScene', args[0]);
       if (args.length > 1) {
         var cb = args[1];
 
@@ -31,16 +26,7 @@
 
     switchAllScenes: function() {
       var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
-        // if (!isElectron) {
-        //   return resolve();
-        // }
-        // ipcRenderer.once('ipc', resolve);
-        // ipcRenderer.send('ipc', {
-        //   action: 'switchAllScenes',
-        //   data: args[0]
-        // });
-      });
+      var promise = window.__execCommand('switchAllScenes', args[0]);
       if (args.length > 1) {
         var cb = args[1];
 
@@ -58,7 +44,7 @@
       var args = Array.prototype.slice.call(arguments);
       var promise = new Promise((resolve, reject) => {
         const name = `${new Date().getTime()}.png`;
-        // this.appendToContext(context, `./screenshots/${name}`);
+        this.appendToContext(context, `./screenshots/${name}`);
         resolve(this.screenshot(name));
       });
       if (args.length > 1) {
@@ -76,19 +62,7 @@
 
     screenshot: function(name) {
       var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
-        // if (!isElectron) {
-        //   return resolve();
-        // }
-        // ipcRenderer.once('ipc', resolve);
-        // ipcRenderer.send('ipc', {
-        //   action: 'screenshot',
-        //   data: {
-        //     dir: './reports/screenshots/' + name
-        //   }
-        // });
-        resolve();
-      });
+      var promise = window.__execCommand('screenshot', './reports/screenshots/' + name);
       if (args.length > 1) {
         var cb = args[1];
 
@@ -135,33 +109,15 @@
       return mocha.run(function(failedCount) {
         if (isPlaywright) {
           const __coverage__ = window.__coverage__;
-          // if (__coverage__) {
-          //   const coverageDir = path.join(process.cwd(), 'coverage');
-          //   try {
-          //     fs.mkdirSync(path.join(coverageDir));
-          //     fs.mkdirSync(path.join(coverageDir, '.temp'));
-          //   } catch (e) {}
-          //   const file = path.join(coverageDir, '.temp', `${+new Date()}_coverage.json`);
-          //   // ignore tests
-          //   const coverageIgnore = process.env.MACACA_COVERAGE_IGNORE_REG;
-          //   if (coverageIgnore) {
-          //     const ignoreReg = new RegExp(coverageIgnore, 'i');
-          //     for (const k in __coverage__) {
-          //       if (ignoreReg.test(k)) {
-          //         delete __coverage__[k];
-          //       }
-          //     }
-          //   }
-          //   fs.writeFileSync(file, JSON.stringify(__coverage__, null, 2));
-          //   console.log(`coverage file created at: ${file}`);
-          // }
 
-          // ipcRenderer.send('ipc', {
-          //   action: 'exit',
-          //   data: {
-          //     failedCount
-          //   }
-          // });
+          if (__coverage__) {
+            window.__execCommand('saveCoverage', __coverage__);
+          }
+
+          // delay to exit
+          setTimeout(() => {
+            window.__execCommand('exit', { failedCount });
+          }, 200);
         }
       });
     }
