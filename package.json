@@ -17,10 +17,9 @@
     "url": "git@github.com:macacajs/uitest.git"
   },
   "dependencies": {
-    "datahub-nodejs-sdk": "^2.2.1",
+    "datahub-nodejs-sdk": "2",
     "macaca-electron": "18",
-    "macaca-playwright": "1",
-    "mocha": "^5.2.0"
+    "macaca-playwright": "1"
   },
   "devDependencies": {
     "chai": "^4.2.0",

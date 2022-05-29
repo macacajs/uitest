@@ -4,7 +4,7 @@
   const isPlaywright = true;
 
   if (!window.__execCommand) {
-    window.__execCommand = async ()=>{};
+    window.__execCommand = async () => {};
   }
 
   window._macaca_uitest = {
