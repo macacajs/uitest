@@ -8,6 +8,40 @@
   }
 
   window._macaca_uitest = {
+    mouse: {
+      click: function(x, y, opt) {
+        return window.__execCommand('mouse', 'click', x, y, opt);
+      },
+      dblclick: function(x, y, opt) {
+        return window.__execCommand('mouse', 'dblclick', x, y, opt);
+      },
+      move: function(x, y, opt) {
+        return window.__execCommand('mouse', 'move', x, y, opt);
+      },
+      down: function(opt) {
+        return window.__execCommand('mouse', 'down', opt);
+      },
+      up: function(opt) {
+        return window.__execCommand('mouse', 'up', opt);
+      }
+    },
+    keyboard: {
+      type: function(str, opt) {
+        return window.__execCommand('keyboard', 'type', str, opt);
+      },
+      down: function(key) {
+        return window.__execCommand('keyboard', 'down', key);
+      },
+      up: function(key) {
+        return window.__execCommand('keyboard', 'up', key);
+      },
+      insertText: function(text) {
+        return window.__execCommand('keyboard', 'insertText', text);
+      },
+      press: function(key, opt) {
+        return window.__execCommand('keyboard', 'press', key, opt);
+      }
+    },
     switchScene: function() {
       var args = Array.prototype.slice.call(arguments);
       var promise = window.__execCommand('switchScene', args[0]);
