@@ -41,71 +41,25 @@
       }
     },
     switchScene: function() {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = window.__execCommand('switchScene', args[0]);
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
-      }
+      const args = Array.prototype.slice.call(arguments);
+      return window.__execCommand('switchScene', args[0]);
     },
 
     switchAllScenes: function() {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = window.__execCommand('switchAllScenes', args[0]);
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
-      }
+      const args = Array.prototype.slice.call(arguments);
+      return window.__execCommand('switchAllScenes', args[0]);
     },
 
     saveScreenshot: function(context) {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         const name = `${new Date().getTime()}.png`;
         this.appendToContext(context, `./screenshots/${name}`);
         resolve(this.screenshot(name));
       });
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
-      }
     },
 
     screenshot: function(name) {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = window.__execCommand('screenshot', './reports/screenshots/' + name);
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
-      }
+      return window.__execCommand('screenshot', './reports/screenshots/' + name);
     },
 
     appendToContext: function(mocha, content) {
