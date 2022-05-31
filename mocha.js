@@ -3949,7 +3949,23 @@ function getSuite(suite, totalTests) {
 }
 
 function done(output, config, failures, exit) {
-  exit && exit(failures ? 1 : 0);
+  try {
+    const fs =  require('fs');
+    const path = require('path');
+
+    const reportsDir = path.join(process.cwd(), 'reports');
+
+    if (!(fs.existsSync(reportsDir) && fs.statSync(reportsDir).isDirectory())) {
+      fs.mkdirSync(reportsDir);
+    }
+
+    const reportsFile = path.join(reportsDir, 'json-final.json');
+    fs.writeFileSync(reportsFile, JSON.stringify(output, null, 2), 'utf8');
+
+    exit && exit(failures ? 1 : 0);
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 /**
