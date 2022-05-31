@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "datahub-nodejs-sdk": "2",
-    "macaca-electron": "18",
     "macaca-playwright": "1"
   },
   "devDependencies": {
