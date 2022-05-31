@@ -3950,9 +3950,8 @@ function getSuite(suite, totalTests) {
 
 function done(output, config, failures, exit) {
   try {
-    window.__execCommand('saveReport', output);
-
-    exit && exit(failures ? 1 : 0);
+    window.__execCommand('saveReport', output)
+      .finally(() => exit && exit(failures ? 1 : 0));
   } catch (e) {
     console.log(e);
   }
