@@ -1,6 +1,6 @@
 {
   "name": "uitest",
-  "version": "19.0.0",
+  "version": "19.0.1",
   "description": "Run mocha in a browser environment.",
   "keywords": [
     "uitest"
@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "detect-port": "1",
     "eslint": "^4.14.0",
     "eslint-plugin-mocha": "^4.11.0",
     "git-contributor": "1",
