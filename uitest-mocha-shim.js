@@ -1,6 +1,15 @@
 ;(function() {
   'use strict';
 
+  function getUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+      .replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+  }
+
   if (!window.__execCommand) {
     window.__execCommand = async () => {};
   }
@@ -52,7 +61,7 @@
 
     saveScreenshot: function(context) {
       return new Promise((resolve, reject) => {
-        const name = `${new Date().getTime()}.png`;
+        const name = `${getUUID()}.png`;
         this.appendToContext(context, `./screenshots/${name}`);
         resolve(this.screenshot(name));
       });
