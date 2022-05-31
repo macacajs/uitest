@@ -1,6 +1,6 @@
 {
   "name": "uitest",
-  "version": "18.0.5-beta1",
+  "version": "18.0.6-beta1",
   "description": "Run mocha in a browser environment.",
   "keywords": [
     "uitest"
