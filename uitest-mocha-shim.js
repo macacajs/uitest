@@ -59,16 +59,28 @@
       return window.__execCommand('switchAllScenes', args[0]);
     },
 
+    saveVideo(context) {
+      return new Promise((resolve, reject) => {
+        window.__execCommand('getVideoName').then(name => {
+          const filePath = `./screenshots/${name}`;
+          this.appendToContext(context, filePath);
+          resolve(filePath);
+        });
+      });
+    },
+
     saveScreenshot(context) {
       return new Promise((resolve, reject) => {
         const name = `${getUUID()}.png`;
-        this.appendToContext(context, `./screenshots/${name}`);
+        const filePath = `./screenshots/${name}`;
+        this.appendToContext(context, filePath);
         resolve(this.screenshot(name));
       });
     },
 
     screenshot(name) {
-      return window.__execCommand('screenshot', './reports/screenshots/' + name);
+      const filePath = `./reports/screenshots/${name}`;
+      return window.__execCommand('screenshot', filePath);
     },
 
     appendToContext(mocha, content) {
