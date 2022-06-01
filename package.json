@@ -19,9 +19,12 @@
     "macaca-playwright": "1"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.18.2",
     "chai": "^4.2.0",
-    "eslint": "^4.14.0",
-    "eslint-plugin-mocha": "^4.11.0",
+    "eslint": "7",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-egg": "^7.1.0",
+    "eslint-config-prettier": "^4.1.0",
     "git-contributor": "1",
     "husky": "^1.3.1",
     "ipv4": "1",

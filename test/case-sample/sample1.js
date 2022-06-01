@@ -1,9 +1,6 @@
-'use strict';
-
 describe('test/case-sample/sample1.js', () => {
-
-  afterEach(async function() {
-    window.__coverage__ = {'test': {}};
+  afterEach(async function () {
+    window.__coverage__ = { test: {} };
     await _macaca_uitest.saveScreenshot(this);
   });
 
@@ -29,4 +26,3 @@ describe('test/case-sample/sample1.js', () => {
     });
   });
 });
-
