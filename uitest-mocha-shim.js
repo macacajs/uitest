@@ -1,133 +1,77 @@
 ;(function() {
   'use strict';
 
-  var isElectron = /Electron/i.test(navigator.userAgent);
-
-  if (!isElectron) {
-    console.info('Macaca Electron Environment not support.');
-  } else {
-    var fs = require('fs');
-    var path = require('path');
-    var { ipcRenderer } = require('electron');
-    var remoteConsole = require('@electron/remote').getGlobal('console');
-
-    var htmldecode = s => {
-      var div = document.createElement('div');
-      div.innerHTML = s;
-      return div.innerText || div.textContent;
-    };
-    // we have to do this so that mocha output doesn't look like shit
-    console.log = function() {
-      var args = [].slice.call(arguments);
-      if (/stdout:/.test(args[0])) {
-        return;
-      }
-      args = args.map(content => {
-        return htmldecode(content);
+  function getUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+      .replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
       });
-      remoteConsole.log.apply(remoteConsole, args);
-    };
+  }
+
+  if (!window.__execCommand) {
+    window.__execCommand = async () => {};
   }
 
   window._macaca_uitest = {
-    switchScene: function() {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
-        if (!isElectron) {
-          return resolve();
-        }
-        ipcRenderer.once('ipc', resolve);
-        ipcRenderer.send('ipc', {
-          action: 'switchScene',
-          data: args[0]
-        });
-      });
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
+    mouse: {
+      click(x, y, opt) {
+        return window.__execCommand('mouse', 'click', x, y, opt);
+      },
+      dblclick(x, y, opt) {
+        return window.__execCommand('mouse', 'dblclick', x, y, opt);
+      },
+      move(x, y, opt) {
+        return window.__execCommand('mouse', 'move', x, y, opt);
+      },
+      down(opt) {
+        return window.__execCommand('mouse', 'down', opt);
+      },
+      up(opt) {
+        return window.__execCommand('mouse', 'up', opt);
       }
     },
-
-    switchAllScenes: function() {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
-        if (!isElectron) {
-          return resolve();
-        }
-        ipcRenderer.once('ipc', resolve);
-        ipcRenderer.send('ipc', {
-          action: 'switchAllScenes',
-          data: args[0]
-        });
-      });
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
+    keyboard: {
+      type(str, opt) {
+        return window.__execCommand('keyboard', 'type', str, opt);
+      },
+      down(key) {
+        return window.__execCommand('keyboard', 'down', key);
+      },
+      up(key) {
+        return window.__execCommand('keyboard', 'up', key);
+      },
+      insertText(text) {
+        return window.__execCommand('keyboard', 'insertText', text);
+      },
+      press(key, opt) {
+        return window.__execCommand('keyboard', 'press', key, opt);
       }
     },
+    switchScene() {
+      const args = Array.prototype.slice.call(arguments);
+      return window.__execCommand('switchScene', args[0]);
+    },
 
-    saveScreenshot: function(context) {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
-        const name = `${new Date().getTime()}.png`;
+    switchAllScenes() {
+      const args = Array.prototype.slice.call(arguments);
+      return window.__execCommand('switchAllScenes', args[0]);
+    },
+
+    saveScreenshot(context) {
+      return new Promise((resolve, reject) => {
+        const name = `${getUUID()}.png`;
         this.appendToContext(context, `./screenshots/${name}`);
         resolve(this.screenshot(name));
       });
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
-      }
     },
 
-    screenshot: function(name) {
-      var args = Array.prototype.slice.call(arguments);
-      var promise = new Promise((resolve, reject) => {
-        if (!isElectron) {
-          return resolve();
-        }
-        ipcRenderer.once('ipc', resolve);
-        ipcRenderer.send('ipc', {
-          action: 'screenshot',
-          data: {
-            dir: './reports/screenshots/' + name
-          }
-        });
-      });
-      if (args.length > 1) {
-        var cb = args[1];
-
-        return promise.then(data => {
-          cb.call(this, null, data);
-        }).catch(err => {
-          cb.call(this, `Error occurred: ${err}`);
-        });
-      } else {
-        return promise;
-      }
+    screenshot(name) {
+      return window.__execCommand('screenshot', './reports/screenshots/' + name);
     },
 
-    appendToContext: function(mocha, content) {
+    appendToContext(mocha, content) {
       try {
         const test = mocha.currentTest || mocha.test;
         if (!test.context) {
@@ -143,51 +87,29 @@
       }
     },
 
-    setup: function(options) {
-      var mochaOptions = options;
+    setup(options) {
+      let mochaOptions = options;
 
-      if (isElectron) {
-        mochaOptions = Object.assign({}, options, {
-          reporter: 'spec',
-          useColors: true
-        });
-      }
+      mochaOptions = Object.assign({}, options, {
+        reporter: 'spec',
+        useColors: true
+      });
 
       return mocha.setup(mochaOptions);
     },
 
-    run: function() {
+    run() {
       return mocha.run(function(failedCount) {
-        if (isElectron) {
-          const __coverage__ = window.__coverage__;
-          if (__coverage__) {
-            const coverageDir = path.join(process.cwd(), 'coverage');
-            try {
-              fs.mkdirSync(path.join(coverageDir));
-              fs.mkdirSync(path.join(coverageDir, '.temp'));
-            } catch (e) {}
-            const file = path.join(coverageDir, '.temp', `${+new Date()}_coverage.json`);
-            // ignore tests
-            const coverageIgnore = process.env.MACACA_COVERAGE_IGNORE_REG;
-            if (coverageIgnore) {
-              const ignoreReg = new RegExp(coverageIgnore, 'i');
-              for (const k in __coverage__) {
-                if (ignoreReg.test(k)) {
-                  delete __coverage__[k];
-                }
-              }
-            }
-            fs.writeFileSync(file, JSON.stringify(__coverage__, null, 2));
-            console.log(`coverage file created at: ${file}`);
-          }
+        const __coverage__ = window.__coverage__;
 
-          ipcRenderer.send('ipc', {
-            action: 'exit',
-            data: {
-              failedCount
-            }
-          });
+        if (__coverage__) {
+          window.__execCommand('saveCoverage', __coverage__);
         }
+
+        // delay to exit
+        setTimeout(() => {
+          window.__execCommand('exit', { failedCount });
+        }, 200);
       });
     }
   };

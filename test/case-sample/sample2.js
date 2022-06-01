@@ -1,9 +1,6 @@
-'use strict';
-
 const { assert } = chai;
 
 describe('test/case-sample/sample2.js', () => {
-
   before(async () => {
     const p = new Promise((resolve, reject) => {
       resolve('res');
@@ -32,4 +29,3 @@ describe('test/case-sample/sample2.js', () => {
     assert.equal(res, 'res');
   });
 });
-

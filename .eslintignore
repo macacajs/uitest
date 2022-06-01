@@ -1,6 +1,5 @@
-**/.*
-**/node_modules
-**/test
-**/coverage
-**/docs_dist
-**/mocha.js
+node_modules
+coverage
+docs_dist
+mocha.js
+uitest-mocha-shim.js
