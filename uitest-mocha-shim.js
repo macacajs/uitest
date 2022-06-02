@@ -62,10 +62,12 @@
     saveVideo(context) {
       return new Promise((resolve, reject) => {
         window.__execCommand('getVideoName').then(name => {
+          // 失败后直接返回
+          if(!name) return resolve(name);
           const filePath = `./screenshots/${name}`;
           this.appendToContext(context, filePath);
           resolve(filePath);
-        });
+        }).catch(e=>resolve(null));
       });
     },
 
