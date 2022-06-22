@@ -1,5 +1,7 @@
+/* eslint-disable */
+'use strict';
+
 ;(function() {
-  'use strict';
 
   function getUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
