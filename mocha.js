@@ -20169,10 +20169,18 @@
   	    };
 
   	    /**
-  	     * Number of attempts to retry.
+  	     * times of attempts to retry.
   	     */
-  	    context.it.retries = function(n) {
-  	      context.retries(n);
+  	    context.it.retries = function(times, title, fn) {
+  	      const suite = suites[0];
+  	      if (suite.isPending()) {
+  	        fn = null;
+  	      }
+  	      const test = new Test(title, fn);
+  	      test.file = file;
+  	      suite.addTest(test);
+  	      test.retries(times);
+  	      return test;
   	    };
   	  });
   	};
