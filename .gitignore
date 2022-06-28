@@ -5,5 +5,4 @@ coverage/
 reports/
 *.sw*
 *.un~
-.DS_Store
-macha.js
+mocha.js

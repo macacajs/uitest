@@ -1,4 +1,5 @@
 'use strict'
+
 const commonjs = require('@rollup/plugin-commonjs');
 const nodePolyfills = require('rollup-plugin-polyfill-node');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
