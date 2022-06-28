@@ -14,15 +14,17 @@
     <script src="../uitest-mocha-shim.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script>
+      window.assert = chai.assert;
       _macaca_uitest.setup({
         ui: 'bdd',
         timeout: 60E3,
         slow: 3E3
       });
     </script>
+    <script src="./case-sample/page.js"></script>
+    <script src="./case-sample/mouse.js"></script>
     <script src="./case-sample/sample2.js"></script>
     <script src="./case-sample/retries.js"></script>
-    <script src="./case-sample/mouse.js"></script>
     <script src="./case-sample/keyboard.js"></script>
     <script>
       _macaca_uitest.run();

@@ -1,11 +1,11 @@
 /* eslint-disable */
 'use strict';
 
-;(function() {
+; (function () {
 
   function getUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
-      .replace(/[xy]/g, function(c) {
+      .replace(/[xy]/g, function (c) {
         const r = Math.random() * 16 | 0;
         const v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
@@ -13,7 +13,7 @@
   }
 
   if (!window.__execCommand) {
-    window.__execCommand = async () => {};
+    window.__execCommand = async () => { };
   }
 
   window._macaca_uitest = {
@@ -32,6 +32,9 @@
       },
       up(opt) {
         return window.__execCommand('mouse', 'up', opt);
+      },
+      wheel(opt) {
+        return window.__execCommand('mouse', 'wheel', x, y, opt);
       }
     },
     keyboard: {
@@ -51,6 +54,23 @@
         return window.__execCommand('keyboard', 'press', key, opt);
       }
     },
+    page: {
+      newPage(url) {
+        return window.__execCommand('newPage', url);
+      },
+      close(pageId) {
+        return window.__execCommand('closePage', pageId);
+      },
+      waitForSelector(pageId, selector) {
+        return window.__execCommand('waitForSelector', pageId, selector);
+      },
+      waitForEvent(pageId, eventName) {
+        return window.__execCommand('waitForEvent', pageId, eventName);
+      },
+      exec(pageId, func) {
+        return window.__execCommand('runInPage', pageId, `(${func.toString()})()`);
+      },
+    },
     switchScene() {
       const args = Array.prototype.slice.call(arguments);
       return window.__execCommand('switchScene', args[0]);
@@ -65,11 +85,11 @@
       return new Promise((resolve, reject) => {
         window.__execCommand('getVideoName').then(name => {
           // 失败后直接返回
-          if(!name) return resolve(name);
+          if (!name) return resolve(name);
           const filePath = `./screenshots/${name}`;
           this.appendToContext(context, filePath);
           resolve(filePath);
-        }).catch(e=>resolve(null));
+        }).catch(e => resolve(null));
       });
     },
 
@@ -115,7 +135,7 @@
     },
 
     run() {
-      return mocha.run(function(failedCount) {
+      return mocha.run(function (failedCount) {
         const __coverage__ = window.__coverage__;
 
         if (__coverage__) {
