@@ -100,6 +100,7 @@ Mocha.Runner.immediately = function(callback) {
  * Function to allow assertion libraries to throw errors directly into mocha.
  * This is useful when running tests in a browser because window.onerror will
  * only receive the 'message' attribute of the Error.
+ * @param {Error} err the error
  */
 mocha.throwError = function(err) {
   uncaughtExceptionHandlers.forEach(function(fn) {

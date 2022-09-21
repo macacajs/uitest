@@ -3,3 +3,4 @@ coverage
 docs_dist
 mocha.js
 uitest-mocha-shim.js
+lib/mocha
