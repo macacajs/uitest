@@ -71,6 +71,9 @@
         return window.__execCommand('runInPage', pageId, `(${func.toString()})()`);
       },
     },
+    fileChooser(filePath) {
+      return window.__execCommand('fileChooser', filePath);
+    },
     switchScene() {
       const args = Array.prototype.slice.call(arguments);
       return window.__execCommand('switchScene', args[0]);
