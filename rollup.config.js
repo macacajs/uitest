@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const commonjs = require('@rollup/plugin-commonjs');
 const nodePolyfills = require('rollup-plugin-polyfill-node');
@@ -11,12 +11,12 @@ module.exports = {
   output: {
     file: 'mocha.js',
     name: 'mocha',
-    format: 'umd'
+    format: 'umd',
   },
   plugins: [
     commonjs(),
     nodeGlobal(),
     nodePolyfills(),
     nodeResolve({ browser: true, preferBuiltins: true }),
-  ]
+  ],
 };

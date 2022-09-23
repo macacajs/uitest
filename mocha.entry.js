@@ -6,7 +6,7 @@
 /**
  * Shim process.stdout.
  */
-process.stdout = require('browser-stdout')({level: false});
+process.stdout = require('browser-stdout')({ level: false });
 
 const Mocha = require('./lib/mocha/mocha');
 
@@ -16,7 +16,7 @@ const Mocha = require('./lib/mocha/mocha');
  * @return {undefined}
  */
 
-const mocha = new Mocha({reporter: 'html'});
+const mocha = new Mocha({ reporter: 'html' });
 
 /**
  * Save timer references to avoid Sinon interfering (see GH-237).
@@ -126,7 +126,7 @@ mocha.ui = function(ui) {
 
 mocha.setup = function(opts) {
   if (typeof opts === 'string') {
-    opts = {ui: opts};
+    opts = { ui: opts };
   }
   for (const opt in opts) {
     if (opts.hasOwnProperty(opt)) {
