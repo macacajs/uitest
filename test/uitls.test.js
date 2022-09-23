@@ -7,13 +7,13 @@ describe('test/exit.test.js', () => {
     const randomRet = Math.random();
     const fn = createThenableFunction();
     
-    setTimeout(()=>{
+    setTimeout(() => {
       fn(randomRet);
     }, 10);
     
     const ret = await fn;
 
-    if(ret !== randomRet) {
+    if (ret !== randomRet) {
       throw new Error('failed');
     }
   });

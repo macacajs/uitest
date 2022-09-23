@@ -6,7 +6,7 @@
 /**
  * Shim process.stdout.
  */
-process.stdout = require('browser-stdout')({level: false});
+process.stdout = require('browser-stdout')({ level: false });
 
 const Mocha = require('./lib/mocha/mocha');
 
@@ -16,7 +16,7 @@ const Mocha = require('./lib/mocha/mocha');
  * @return {undefined}
  */
 
-const mocha = new Mocha({reporter: 'html'});
+const mocha = new Mocha({ reporter: 'html' });
 
 /**
  * Save timer references to avoid Sinon interfering (see GH-237).
@@ -100,6 +100,7 @@ Mocha.Runner.immediately = function(callback) {
  * Function to allow assertion libraries to throw errors directly into mocha.
  * This is useful when running tests in a browser because window.onerror will
  * only receive the 'message' attribute of the Error.
+ * @param {Error} err the error
  */
 mocha.throwError = function(err) {
   uncaughtExceptionHandlers.forEach(function(fn) {
@@ -125,7 +126,7 @@ mocha.ui = function(ui) {
 
 mocha.setup = function(opts) {
   if (typeof opts === 'string') {
-    opts = {ui: opts};
+    opts = { ui: opts };
   }
   for (const opt in opts) {
     if (opts.hasOwnProperty(opt)) {
