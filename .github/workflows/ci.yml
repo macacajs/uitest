@@ -31,7 +31,6 @@ jobs:
       - name: Continuous integration
         run: |
           npm run lint
-          chmod +x node_modules/nyc/bin/nyc.js node_modules/nyc/bin/wrap.js
           docker run -i --entrypoint=bash -v `pwd`:/root/tmp --rm mcr.microsoft.com/playwright:v1.26.0-focal -c "cd /root/tmp && ./test/ci.sh"
 
       - name: Code coverage
