@@ -5,5 +5,5 @@ export DISPLAY=:9.0
 sleep 3
 
 whoami
-npx mocha -h
+which npx
 npm run test
