@@ -5,4 +5,5 @@ export DISPLAY=:9.0
 sleep 3
 
 whoami
+npx nyc -h
 npm run test
