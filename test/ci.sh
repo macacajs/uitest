@@ -4,5 +4,5 @@ export DISPLAY=:9.0
 
 sleep 3
 
-ls -l node_modules/.bin
+whoami
 npm run test
