@@ -41,7 +41,8 @@
   },
   "scripts": {
     "prepublishOnly": "rollup -c",
-    "test": "nyc --reporter=lcov --reporter=text mocha",
+    "test": "mocha",
+    "cov": "nyc --reporter=lcov --reporter=text mocha",
     "lint": "eslint --fix .",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
