@@ -30,7 +30,8 @@ jobs:
       - name: Continuous integration
         run: |
           npm run lint
-          docker run -i --entrypoint=bash -v `pwd`:/root/tmp --rm mcr.microsoft.com/playwright:v1.26.0-focal -c "cd /root/tmp && ./test/ci.sh"
+          npm run test
+          # docker run -i --entrypoint=bash -v `pwd`:/root/tmp --rm mcr.microsoft.com/playwright:v1.26.0-focal -c "cd /root/tmp && ./test/ci.sh"
 
       - name: Code coverage
         uses: codecov/codecov-action@v3.0.0
